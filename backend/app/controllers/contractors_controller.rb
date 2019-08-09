@@ -8,6 +8,7 @@ class ContractorsController < ApplicationController
 
     def create
         contractor = Contractor.create(contractor_params)
+        # byebug
         render json: contractor 
     end 
 
@@ -30,8 +31,10 @@ class ContractorsController < ApplicationController
         end 
     end 
 
-    private def contractor_params
-        params.require(:contractor).permit(:name, :username, :password, :location, :language)
+private 
+    def contractor_params
+        params.permit(:name, :username, :password, :location, :language)
     end 
+
 end 
 
