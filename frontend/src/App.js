@@ -6,7 +6,7 @@ import { ExpertiseForm } from './ExpertiseForm'
 import history from './history'
 import { Router, Route } from 'react-router-dom'
 import { LoginContractor } from './LoginContractor';
-import { LoginUser } from './LoginUser'
+import  LoginUser  from './LoginUser'
 
 
 function App() {

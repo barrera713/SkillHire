@@ -1,1 +1,2 @@
 export const NEW_USER = 'NEW USER';
+export const AUTHENTICATE_USER = 'AUTHENTICATE USER'

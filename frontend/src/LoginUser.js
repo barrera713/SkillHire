@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { authenticateUser } from './actions/userActions';
 
 
 class LoginUser extends React.Component {
@@ -16,19 +18,11 @@ class LoginUser extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:3000/user/authenticate', {
-            method: 'POST', 
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
-            })
-        })
-        .then( r => r.json())
-        .then( user => localStorage.setItem('token', user.auth_token))
-        console.log('login successful')      
+        const loginData = {
+            username: this.state.username,
+            password: this.state.password
+        }
+        this.props.authenticateUser(loginData)     
     }
 
     render() {
@@ -48,4 +42,4 @@ class LoginUser extends React.Component {
 
 }
 
-export { LoginUser }
+export default connect(null, { authenticateUser })(LoginUser)
