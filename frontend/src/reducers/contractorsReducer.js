@@ -1,21 +1,21 @@
-import { NEW_USER, CURRENT_USER } from '../actions/types';
+import { NEW_CONTRACTOR, CURRENT_CONTRACTOR } from '../actions/types';
 
 const initialState = {
-    user: {},
-    current_user: {}
+    contractor: {},
+    current_contractor: {}
 };
 
 export default function(state = initialState, action) {
     switch (action.type) {
-        case NEW_USER:
+        case NEW_CONTRACTOR:
             return {
                 ...state,
-                user: action.payload
+                contractor: action.payload
             };
-        case CURRENT_USER:
+        case CURRENT_CONTRACTOR:
             return {
                 ...state,
-                current_user: action.payload
+                current_contractor: action.payload
             }
         default: 
         return state;

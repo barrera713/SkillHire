@@ -4,27 +4,13 @@ import { createUser } from './actions/userActions';
 
 class SignUpUser extends React.Component {
 
-    state = {
-        name: '',
-        username: '',
-        password: '',
-        location: ''
-    }
-
-    
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-    
     handleSubmit = (e) => {
         e.preventDefault()
         const userData = {
-            name: this.state.name,
-            username: this.state.username,
-            password: this.state.password,
-            location: this.state.location
+            "name": e.target["name"].value,
+            "username": e.target["username"].value,
+            "password": e.target["password"].value,
+            "location": e.target["location"].value
         };
         this.props.createUser(userData)
     }
@@ -34,16 +20,16 @@ class SignUpUser extends React.Component {
         return (
             <div>
             <h2>User Sign Up</h2>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <label>Name</label>
-                    <input name="name" placeholder="name" type="text" onChange={this.handleChange}/>
+                    <input name="name" placeholder="name" type="text" />
                     <label>Username</label>
-                    <input name="username" placeholder="username" type="text" onChange={this.handleChange}/>
+                    <input name="username" placeholder="username" type="text" />
                     <label>Password</label>
-                    <input name="password" placeholder="password" type="password" onChange={this.handleChange}/>
+                    <input name="password" placeholder="password" type="password" />
                     <label>Location</label>
-                    <input name="location" placeholder="location" type="text" onChange={this.handleChange}/>
-                    <button onClick={this.handleSubmit}>Confirm</button>
+                    <input name="location" placeholder="location" type="text" />
+                    <button>Confirm</button>
                 </form>
             </div>
         )

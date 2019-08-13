@@ -5,22 +5,12 @@ import { authenticateUser } from './actions/userActions';
 
 class LoginUser extends React.Component {
 
-    state = {
-        username: '',
-        password: ''
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-
     handleSubmit = (e) => {
         e.preventDefault()
+        console.log(e.target)
         const loginData = {
-            username: this.state.username,
-            password: this.state.password
+            "username": e.target["username"].value,
+            "password": e.target["password"].value
         }
         this.props.authenticateUser(loginData)     
     }
@@ -29,12 +19,12 @@ class LoginUser extends React.Component {
         return (
             <div>
             <h2>User Sign Up</h2>
-                <form>
+                <form onSubmit = {this.handleSubmit}>
                     <label>Username</label>
-                    <input name="username" placeholder="username" type="text" onChange={this.handleChange}/>
+                    <input name="username" placeholder="username" type="text" />
                     <label>Password</label>
-                    <input name="password" placeholder="password" type="password" onChange={this.handleChange}/>
-                    <button onClick={this.handleSubmit}>Sign In</button>
+                    <input name="password" placeholder="password" type="password" />
+                    <button>Sign In</button>
                 </form>
             </div>
         )

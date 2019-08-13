@@ -1,48 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { createContractor } from './actions/contractorActions'
 
 class SignUpContractor extends React.Component {
 
-    state = {
-        name: '',
-        username: '',
-        password: '',
-        location: '',
-        language: ''
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-
     handleSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:3000/start-earning', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: this.state.name,
-                username: this.state.username,
-                password: this.state.password,
-                location: this.state.location,
-                language: this.state.language
-            })
-        })
-        fetch('http://localhost:3000/contractor/authenticate', {
-            method: 'POST', 
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password
-            })
-        })
-        .then( r => r.json())
-        .then( user => localStorage.setItem('token', user.auth_token))  
+        const contractorData = {
+            "name": e.target["name"].value,
+            "username": e.target["username"].value,
+            "password": e.target["password"].value,
+            "location": e.target["location"].value,
+            "language": e.target["language"].value,
+        };
+        this.props.createContractor(contractorData)
     }
 
 
@@ -50,18 +21,18 @@ class SignUpContractor extends React.Component {
         return (
             <div>
                 <h2>Contractor Sign Up</h2>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <label>Name</label>
-                    <input name="name" placeholder="name" type="text" onChange={this.handleChange} />
+                    <input name="name" placeholder="name" type="text"  />
                     <label>Username</label>
-                    <input name="username" placeholder="username" type="text" onChange={this.handleChange} />
+                    <input name="username" placeholder="username" type="text"  />
                     <label>Password</label>
-                    <input name="password" placeholder="password" type="password" onChange={this.handleChange} />
+                    <input name="password" placeholder="password" type="password"  />
                     <label>Location</label>
-                    <input name="location" placeholder="location" type="text" onChange={this.handleChange} />
+                    <input name="location" placeholder="location" type="text"  />
                     <label>Language(s)</label>
-                    <input name="language" placeholder="language" type="text" onChange={this.handleChange} />
-                    <button onClick={this.handleSubmit}>Confirm</button>
+                    <input name="language" placeholder="language" type="text"  />
+                    <button>Confirm</button>
                 </form>
             </div>
         )
@@ -69,4 +40,4 @@ class SignUpContractor extends React.Component {
 
 }
 
-export { SignUpContractor }
+export default connect(null, { createContractor })(SignUpContractor)
