@@ -30,6 +30,11 @@ class UsersController < ApplicationController
         end 
     end 
 
+
+    def current_user
+        render json: @current_user
+    end 
+
     private def user_params
         params.permit(:name, :username, :password, :location)
     end 

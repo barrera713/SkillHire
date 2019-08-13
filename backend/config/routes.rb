@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/user/authenticate', to: 'users#authenticate'
   post '/join', to: 'users#create'
   get '/user/:id', to: 'users#show'
+  get '/current-user', to: 'users#current_user'
 
   # Contractor routes
   post '/contractor/authenticate', to: 'contractors#authenticate'

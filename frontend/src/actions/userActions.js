@@ -1,4 +1,4 @@
-import { NEW_USER, AUTHENTICATE_USER } from './types';
+import { NEW_USER, CURRENT_USER } from './types';
 import history from '../history';
 
 export const createUser = (userData) => dispatch => {
@@ -28,11 +28,19 @@ export const authenticateUser = (loginData) => dispatch => {
     })
     .then(res => res.json())
     .then( user => localStorage.setItem('token', user.auth_token))
-    .then(usernamePassword => dispatch({
-        type: AUTHENTICATE_USER,
-        payload: usernamePassword
+    console.log('login successful')
+    fetch('http://localhost:3000/current-user', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    })
+    .then( res => res.json())
+    .then( user => dispatch({
+        type: CURRENT_USER,
+        payload: user
     }))
-    console.log('login successful') 
+    
 }
 
 
