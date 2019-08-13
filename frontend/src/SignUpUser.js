@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { createUser } from './actions/userActions'
 
 class SignUpUser extends React.Component {
 
@@ -9,29 +11,24 @@ class SignUpUser extends React.Component {
         location: ''
     }
 
+    
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
-
+    
     handleSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:3000/join', {
-            method: 'POST', 
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: this.state.name,
-                username: this.state.username,
-                password: this.state.password,
-                location: this.state.location,
-            })
-        })
-        .then(() => { window.location.replace('/user-login')})
-        console.log('user created')
+        const userData = {
+            name: this.state.name,
+            username: this.state.username,
+            password: this.state.password,
+            location: this.state.location
+        };
+        this.props.createUser(userData)
     }
+
 
     render() {
         return (
@@ -51,7 +48,11 @@ class SignUpUser extends React.Component {
             </div>
         )
     }
-
 }
 
-export { SignUpUser }
+
+
+
+export default connect(null, { createUser })(SignUpUser);
+
+
