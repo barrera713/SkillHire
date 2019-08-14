@@ -7,6 +7,7 @@ import history from './history'
 import { Router, Route } from 'react-router-dom'
 import LoginContractor from './LoginContractor';
 import  LoginUser  from './LoginUser'
+import ReviewForm from './ReviewForm'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route exact path='/contractor-expertise' component={ExpertiseForm}></Route>
         <Route exact path='/contractor-login' component={LoginContractor}></Route>
         <Route exact path='/user-login' component={LoginUser}></Route>
+        <Route exact path='/review/new' component={ReviewForm}></Route>
   </Router>
    </div>
   )

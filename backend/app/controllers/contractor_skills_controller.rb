@@ -9,7 +9,7 @@ class ContractorSkillsController < ApplicationController
         contractor_skill = Contractor_Skill.new(contractor_skills_params)
         contractor_skill.skill = self.id 
         contractor_skill.contractor = self.id 
-        order_item.save 
+        contractor_skill.save 
         render json: order 
     end     
 

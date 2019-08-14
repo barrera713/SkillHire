@@ -5,3 +5,5 @@ export const NEW_CONTRACTOR = 'NEW CONTRACTOR';
 export const CURRENT_CONTRACTOR = 'CURRENT CONTRACTOR';
 
 export const NEW_SKILL = 'NEW SKILL'; 
+
+export const NEW_REVIEW = 'NEW REVIEW';
