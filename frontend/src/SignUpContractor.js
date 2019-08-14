@@ -10,8 +10,8 @@ class SignUpContractor extends React.Component {
             "name": e.target["name"].value,
             "username": e.target["username"].value,
             "password": e.target["password"].value,
-            "location": e.target["location"].value,
-            "language": e.target["language"].value,
+            "city": e.target["city"].value,
+            "state": e.target["state"].value
         };
         this.props.createContractor(contractorData)
     }
@@ -28,8 +28,10 @@ class SignUpContractor extends React.Component {
                     <input name="username" placeholder="username" type="text"  />
                     <label>Password</label>
                     <input name="password" placeholder="password" type="password"  />
-                    <label>Location</label>
-                    <input name="location" placeholder="location" type="text"  />
+                    <label>City</label>
+                    <input name="city" placeholder="city" type="text"  />
+                    <label>State</label>
+                    <input name="state" placeholder="state" type="text"  />
                     <label>Language(s)</label>
                     <input name="language" placeholder="language" type="text"  />
                     <button>Confirm</button>

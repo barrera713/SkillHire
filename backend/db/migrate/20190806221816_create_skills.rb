@@ -8,6 +8,7 @@ class CreateSkills < ActiveRecord::Migration[5.2]
       t.boolean :developer
       t.boolean :designer
       t.boolean :videoeditor
+      t.integer :contractor_id
 
       t.timestamps
     end

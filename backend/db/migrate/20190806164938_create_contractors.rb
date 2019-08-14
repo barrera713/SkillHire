@@ -5,7 +5,8 @@ class CreateContractors < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :username
       t.string :password_digest
-      t.string :location 
+      t.string :city
+      t.string :state 
       t.string :language
 
       t.timestamps

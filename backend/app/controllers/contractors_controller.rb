@@ -37,7 +37,7 @@ class ContractorsController < ApplicationController
 
 private 
     def contractor_params
-        params.permit(:name, :username, :password, :location, :language)
+        params.permit(:name, :username, :password, :city, :state, :language)
     end 
 
 end 

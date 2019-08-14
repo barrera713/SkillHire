@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/current-contractor', to: 'contractors#current_contractor'
 
   # Skill 
-  post '/contractor-expertise', to: 'skills#create'
+  post '/contractor-expertise/:contractor_id', to: 'skills#create'
 
   # Review
   post '/review/new/:contractor_id', to: 'reviews#create'
