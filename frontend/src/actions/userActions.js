@@ -28,7 +28,6 @@ export const authenticateUser = (loginData) => dispatch => {
     })
     .then(res => res.json())
     .then( user => localStorage.setItem('token', user.auth_token))
-    console.log('login successful')
     fetch('http://localhost:3000/current-user', {
         method: 'GET',
         headers: {

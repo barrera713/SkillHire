@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/contractor/authenticate', to: 'contractors#authenticate'
   post '/start-earning', to: 'contractors#create'
   get '/contractor/:id', to: 'contractors#show'
+  get '/current-contractor', to: 'contractors#current_contractor'
 
   # Skill routes 
   post '/contractor-expertise', to: 'skills#create'

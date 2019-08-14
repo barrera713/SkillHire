@@ -1,7 +1,7 @@
 import { NEW_CONTRACTOR, CURRENT_CONTRACTOR } from '../actions/types';
 
 const initialState = {
-    contractor: {},
+    contractors: [],
     current_contractor: {}
 };
 
@@ -13,6 +13,7 @@ export default function(state = initialState, action) {
                 contractor: action.payload
             };
         case CURRENT_CONTRACTOR:
+            console.log("here",action)
             return {
                 ...state,
                 current_contractor: action.payload

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
     before_action :define_current_user 
 
-    attr_reader :current_user 
+    attr_reader :current_user, :current_contractor
 
     def define_current_user
 
@@ -19,10 +19,10 @@ class ApplicationController < ActionController::API
             end
 
             if(payload['type'] == 'contractor')
-                @current_user = Contractor.find(payload['id'])
+                @current_contractor = Contractor.find(payload['id'])
             end
 
-            if @current_user
+            if @current_user || @current_contractor
                 return true
             else
                 render json: {

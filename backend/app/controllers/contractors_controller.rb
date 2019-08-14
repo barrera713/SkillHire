@@ -31,6 +31,10 @@ class ContractorsController < ApplicationController
         end 
     end 
 
+    def current_contractor 
+        render json: @current_contractor
+    end 
+
 private 
     def contractor_params
         params.permit(:name, :username, :password, :location, :language)

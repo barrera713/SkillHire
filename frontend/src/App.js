@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import SignUpContractor from './SignUpContractor'
 import  SignUpUser  from './SignUpUser';
-import { ExpertiseForm } from './ExpertiseForm'
+import ExpertiseForm from './ExpertiseForm'
 import history from './history'
 import { Router, Route } from 'react-router-dom'
 import LoginContractor from './LoginContractor';

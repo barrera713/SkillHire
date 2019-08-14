@@ -1,6 +1,7 @@
 import { NEW_CONTRACTOR, CURRENT_CONTRACTOR } from './types';
 import history from '../history';
 
+
 export const createContractor = (contractorData ) => dispatch => {
     fetch('http://localhost:3000/start-earning', {
         method: 'POST',
@@ -24,9 +25,11 @@ export const createContractor = (contractorData ) => dispatch => {
         })
         .then( res => res.json())
         .then( user => localStorage.setItem('token', user.auth_token))
-        console.log('login successful')
+        history.push('/contractor-expertise')
     })
 }
+
+
 
 export const loginContractor = (loginInfo) => dispatch => {
     fetch('http://localhost:3000/contractor/authenticate', {
@@ -38,6 +41,17 @@ export const loginContractor = (loginInfo) => dispatch => {
     })
     .then( res => res.json())
     .then( user => localStorage.setItem('token', user.auth_token))
-    console.log('login successful') 
+    fetch('http://localhost:3000/current-contractor', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    })
+    .then( res => res.json())
+    .then( contractor => dispatch({
+        type: CURRENT_CONTRACTOR,
+        payload: contractor
+    }))
 }
+
 
