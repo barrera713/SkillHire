@@ -41,22 +41,6 @@
   }
 }
 
-.photographer-img {
-  height: 25vh;
-}
-
-.developer-img {
-  height: 25vh;
-}
-
-.designer-img {
-  height: 25vh;
-}
-
-.video-editor-img {
-  height: 25vh;
-}
-
 .row::after {
   content: '';
   clear: both;

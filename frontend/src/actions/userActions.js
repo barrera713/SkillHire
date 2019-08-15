@@ -39,7 +39,7 @@ export const authenticateUser = (loginData) => dispatch => {
         type: CURRENT_USER,
         payload: user
     }))
-    
+      
 }
 
 
