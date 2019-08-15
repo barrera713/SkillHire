@@ -19,7 +19,7 @@ class HomePage extends React.Component {
     render() {
         return (
             <Container>
-            <Header as="h1">Home</Header>
+            <Header as="h1" textAlign="center">Login</Header>
                 <Form onSubmit = {this.handleSubmit}>
                     <Label>Username</Label>
                     <Form.Input name="username" placeholder="username" type="text" />

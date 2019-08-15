@@ -1,5 +1,4 @@
 import { NEW_USER } from './types';
-import history from '../history';
 
 export const createUser = (userData) => dispatch => {
     fetch('http://localhost:3000/join', {

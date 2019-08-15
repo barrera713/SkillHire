@@ -63,3 +63,7 @@
 .column:last-child{
   margin-right: 0px;
 }
+
+.ui.modal-btn {
+  background: #93BEFF;
+}
