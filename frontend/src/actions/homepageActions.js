@@ -1,6 +1,7 @@
-import { THIS_USER } from './types'
+import { CURRENT_USER } from './types'
 
-export const loginThisUser = (info) => dispatch => {
+
+export const userLogin = (info) => dispatch => {
     fetch('http://localhost:3000/login', {
         method: 'POST', 
         headers: {
@@ -11,7 +12,7 @@ export const loginThisUser = (info) => dispatch => {
     .then(res => res.json())
     .then( user => localStorage.setItem('token', user.auth_token))
     .then( () => {
-        fetch('http://localhost:3000/current-user', {
+        fetch('http://localhost:3000/current/user', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -19,7 +20,7 @@ export const loginThisUser = (info) => dispatch => {
         })
         .then( res => res.json())
         .then( current_user => dispatch({
-            type: THIS_USER,
+            type: CURRENT_USER,
             payload: current_user
         }))
 

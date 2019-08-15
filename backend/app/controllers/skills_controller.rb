@@ -1,6 +1,5 @@
 class SkillsController < ApplicationController 
-    # skip_before_action :define_current_user, only: [ :create ]
-    
+   
     def index
         skills = Skill.all 
         render json: skills

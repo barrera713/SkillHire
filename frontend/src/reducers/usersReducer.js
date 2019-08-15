@@ -1,8 +1,7 @@
-import { NEW_USER, CURRENT_USER } from '../actions/types';
+import { NEW_USER } from '../actions/types';
 
 const initialState = {
-    users: [],
-    current_user: {}
+    users: []
 };
 
 export default function(state = initialState, action) {
@@ -11,11 +10,6 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 user: action.payload
-            };
-        case CURRENT_USER:
-            return {
-                ...state,
-                current_user: action.payload
             };
         default: 
         return state;

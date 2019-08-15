@@ -11,7 +11,8 @@ class SignUpContractor extends React.Component {
             "username": e.target["username"].value,
             "password": e.target["password"].value,
             "city": e.target["city"].value,
-            "state": e.target["state"].value
+            "state": e.target["state"].value,
+            "language": e.target["language"].value
         };
         this.props.createContractor(contractorData)
     }

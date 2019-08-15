@@ -8,5 +8,5 @@ export default combineReducers({
     users: usersReducer,
     contractors: contractorsReducer,
     reviews: reviewReducer,
-    present_user: homepageReducer
+    current_user: homepageReducer
 })  

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { loginThisUser } from './actions/homepageActions'
+import { userLogin } from './actions/homepageActions'
+import { Form, Button, Container, Label, Header } from 'semantic-ui-react';
+
 
 
 class HomePage extends React.Component {
@@ -11,24 +13,24 @@ class HomePage extends React.Component {
             "username": e.target["username"].value,
             "password": e.target["password"].value
         }
-        this.props.loginThisUser(loginData)     
+        this.props.userLogin(loginData)     
     }
 
     render() {
         return (
-            <div>
-            <h2>Home</h2>
-                <form onSubmit = {this.handleSubmit}>
-                    <label>Username</label>
-                    <input name="username" placeholder="username" type="text" />
-                    <label>Password</label>
-                    <input name="password" placeholder="password" type="password" />
-                    <button>Sign In</button>
-                </form>
-            </div>
+            <Container>
+            <Header as="h1">Home</Header>
+                <Form onSubmit = {this.handleSubmit}>
+                    <Label>Username</Label>
+                    <Form.Input name="username" placeholder="username" type="text" />
+                    <Label>Password</Label>
+                    <Form.Input name="password" placeholder="password" type="password" />
+                    <Button size="small" color="green">Sign In</Button>
+                </Form>
+            </Container>
         )
     }
 
 }
 
-export default connect(null, { loginThisUser })(HomePage)
+export default connect(null, { userLogin })(HomePage)
