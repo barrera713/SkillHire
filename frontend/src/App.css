@@ -10,6 +10,7 @@
 
 .body {
   font-family: 'Oswald', sans-serif !important;
+  background-color: #EBF7E3;
 }
 
 
@@ -64,6 +65,15 @@
   margin-right: 0px;
 }
 
-.ui.modal-btn {
-  background: #93BEFF;
+
+.ui.inverted.segment.navbar {
+  border-radius: 0px;
 }
+
+.ui.container.form-background {
+  background:#EBF7E3;
+}
+
+
+
+

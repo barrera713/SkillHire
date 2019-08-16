@@ -1,11 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { userLogin } from './actions/homepageActions'
-import { Form, Button, Container, Label, Header } from 'semantic-ui-react';
+import { userLogin } from './actions/homepageActions';
+import { Button, Form, Label, Header, Container } from 'semantic-ui-react'
+
+
 
 
 
 class HomePage extends React.Component {
+    
+
+
 
     handleSubmit = (e) => {
         e.preventDefault()
@@ -18,14 +23,14 @@ class HomePage extends React.Component {
 
     render() {
         return (
-            <Container>
-            <Header as="h1" textAlign="center">Login</Header>
+            <Container className="form-background">
+            <Header as="h2" textAlign="center">Login</Header>
                 <Form onSubmit = {this.handleSubmit}>
                     <Label>Username</Label>
                     <Form.Input name="username" placeholder="username" type="text" />
                     <Label>Password</Label>
                     <Form.Input name="password" placeholder="password" type="password" />
-                    <Button size="small" color="green">Sign In</Button>
+                    <Button positive>Sign In</Button>
                 </Form>
             </Container>
         )
