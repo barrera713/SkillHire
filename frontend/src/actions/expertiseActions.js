@@ -2,6 +2,7 @@ import { NEW_SKILL} from './types';
 
 
 export const createSkill = (formData) => dispatch => {
+    
     fetch('http://localhost:3000/expertise', {
         method: 'POST', 
         headers: {
@@ -14,5 +15,7 @@ export const createSkill = (formData) => dispatch => {
     .then( skill => dispatch({
         type: NEW_SKILL,
         payload: skill
-    }))
+        })
+    )
+    console.log('skill created')
 }

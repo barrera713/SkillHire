@@ -2,6 +2,8 @@ export const NEW_USER = 'NEW USER';
 
 export const NEW_CONTRACTOR = 'NEW CONTRACTOR';
 
+export const FETCH_CONTRACTORS = 'FETCH CONTRACTORS'
+
 export const NEW_SKILL = 'NEW SKILL'; 
 
 export const NEW_REVIEW = 'NEW REVIEW';

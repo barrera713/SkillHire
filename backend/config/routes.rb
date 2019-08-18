@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/current-user', to: 'users#current_user'
 
   # Contractor
+  get '/freelancers', to: 'contractors#index'
   post '/contractor/authenticate', to: 'contractors#authenticate'
   post '/start-earning', to: 'contractors#create'
   get '/contractor/:id', to: 'contractors#show'

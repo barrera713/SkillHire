@@ -1,11 +1,17 @@
-import { NEW_CONTRACTOR } from '../actions/types';
+import { NEW_CONTRACTOR, FETCH_CONTRACTORS } from '../actions/types';
 
 const initialState = {
-    contractors: []
+    contractors: [],
+    contractor: {}
 };
 
 export default function(state = initialState, action) {
     switch (action.type) {
+        case FETCH_CONTRACTORS:
+            return {
+                ...state,
+                contractors: action.payload
+            }
         case NEW_CONTRACTOR:
             return {
                 ...state,

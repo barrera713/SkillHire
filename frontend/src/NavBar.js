@@ -40,17 +40,32 @@ class NavBar extends Component {
         this.props.createContractor(contractorData)
     }
 
-    handleItemClick = (e, { name }) => this.setState({ 
+    handleUserModal = (e, { name }) => this.setState({ 
         activeItem: name,
-        userSignUp: true,
-        contractorSignUp: true
+        userSignUp: true
     })
 
-    handleHome() {
+    closeUserModal = (e) => {
+        this.setState({ userSignUp: !this.state.userSignUp })
+    }
+
+    handleHome = (e) => {
+        this.setState({
+            activeItem: 'home'
+        })
         history.push('/')
     }
 
-    
+    handleContractorModal = (e, { name }) => this.setState({ 
+        activeItem: name,
+        contractorSignUp: true
+    })
+
+    closeContractorModal = (e) => {
+        this.setState({ contractorSignUp: !this.state.contractorSignUp })
+    }
+
+
     render() {
 
         const { activeItem } = this.state
@@ -59,10 +74,10 @@ class NavBar extends Component {
             <Segment inverted className="navbar">
                 <Menu inverted pointing secondary>
                     <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleHome}/>
-                    <Menu.Item name='client sign up' active={activeItem === 'client sign up'} onClick={this.handleItemClick}/>
-                    <Menu.Item name='contractor sign up' active={activeItem === 'contractor sign up'} onClick={this.handleItemClick}/>
+                    <Menu.Item name='client sign up' active={activeItem === 'client sign up'} onClick={this.handleUserModal}/>
+                    <Menu.Item name='contractor sign up' active={activeItem === 'contractor sign up'} onClick={this.handleContractorModal}/>
                 </Menu>
-                <Modal open={this.state.userSignUp}>
+                <Modal open={this.state.userSignUp} onClose={this.closeUserModal}>
                         <Modal.Content className="content-background">
                             <Form onSubmit={this.handleSubmit} className="form-background">
                                 <Label>Name</Label>
@@ -79,7 +94,7 @@ class NavBar extends Component {
                             </Form>
                         </Modal.Content>
                     </Modal>
-                    <Modal open={this.state.contractorSignUp}>
+                    <Modal open={this.state.contractorSignUp} onClose={this.closeContractorModal}>
                         <Modal.Content className="content-background">
                             <Form onSubmit={this.contractorSubmit}>
                             <Label>Name</Label>

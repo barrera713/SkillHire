@@ -9,46 +9,36 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# arr = [ 
+#     'Forrest City',
+#     'Fort Smith',
+#     'Harrison',
+#     'Helena',
+#     'Hope',
+#     'Hot Springs',
+#     'Jacksonville',
+#     'Jonesboro',
+#     'Little Rock',
+#     'Magnolia',
+#     'Morrilton',
+#     'Newport',
+#     'North Little Rock',
+#     'Osceola',
+#     'Pine Bluff',
+#     'Rogers',
+#     'Searcy'
+# ]
 
 
-# t.string :name
-# t.string :username
-# t.string :password_digest
-# t.string :city
-# t.string :state 
-# t.string :language
+# counter = 0
 
-arr = [ 
-    'Forrest City',
-    'Fort Smith',
-    'Harrison',
-    'Helena',
-    'Hope',
-    'Hot Springs',
-    'Jacksonville',
-    'Jonesboro',
-    'Little Rock',
-    'Magnolia',
-    'Morrilton',
-    'Newport',
-    'North Little Rock',
-    'Osceola',
-    'Pine Bluff',
-    'Rogers',
-    'Searcy'
-]
+# 100.times do 
+#     name = Faker::Name.name
+#     if counter == 16 
+#         counter = 0 
+#     else 
+#         counter += 1
+#     end 
+# end 
 
-
-counter = 0
-
-100.times do 
-    name = Faker::Name.name
-    Contractor.create(name: name, username: name, password: "123123", city: arr[counter], state: 'Arkansas', language: "english")
-    if counter == 16 
-        counter = 0 
-    else 
-        counter += 1
-    end 
-end 
-
-puts "seeded"
+# puts "seeded"

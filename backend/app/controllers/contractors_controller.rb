@@ -1,5 +1,5 @@
 class ContractorsController < ApplicationController 
-    skip_before_action :define_current_user, only: [ :authenticate, :create ]
+    skip_before_action :define_current_user, only: [ :authenticate, :create, :index ]
 
     def index 
         contractor = Contractor.all 

@@ -1,6 +1,15 @@
-import { NEW_CONTRACTOR } from './types';
+import { FETCH_CONTRACTORS, NEW_CONTRACTOR } from './types';
 import history from '../history';
 
+
+export const fetchContractors = () => dispatch => {
+    fetch('http://localhost:3000/freelancers')
+    .then( res => res.json())
+    .then(contractors => dispatch({
+        type: FETCH_CONTRACTORS,
+        payload: contractors
+    }));
+}
 
 export const createContractor = (contractorData ) => dispatch => {
     fetch('http://localhost:3000/start-earning', {
