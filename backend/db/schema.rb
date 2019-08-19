@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2019_08_06_221816) do
     t.string "password_digest"
     t.string "city"
     t.string "state"
-    t.string "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,7 +48,6 @@ ActiveRecord::Schema.define(version: 2019_08_06_221816) do
     t.boolean "developer"
     t.boolean "designer"
     t.boolean "videoeditor"
-    t.integer "contractor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

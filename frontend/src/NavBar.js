@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createUser } from './actions/userActions';
 import { createContractor } from './actions/contractorActions'
-import { Menu, Segment, Modal, Button, Form, Label } from 'semantic-ui-react'
+import { Menu, Segment, Modal, Button, Form, Label } from 'semantic-ui-react';
 import history from './history'
 
 
@@ -34,8 +34,7 @@ class NavBar extends Component {
             "username": e.target["username"].value,
             "password": e.target["password"].value,
             "city": e.target["city"].value,
-            "state": e.target["state"].value,
-            "language": e.target["language"].value
+            "state": e.target["state"].value
         };
         this.props.createContractor(contractorData)
     }
@@ -107,8 +106,6 @@ class NavBar extends Component {
                             <Form.Input name="city" placeholder="city" type="text"  />
                             <Label>State</Label>
                             <Form.Input name="state" placeholder="state" type="text"  />
-                            <Label>Language(s)</Label>
-                            <Form.Input name="language" placeholder="language" type="text"  />
                             <Button className="submit-btn">Confirm</Button>
                         </Form>
                         </Modal.Content>

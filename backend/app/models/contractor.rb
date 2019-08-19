@@ -1,6 +1,8 @@
 class Contractor < ApplicationRecord
     has_secure_password 
+    has_many :reviews 
     has_many :users, through: :reviews
+    has_many :contractor_skills
     has_many :skills, through: :contractor_skills
     validates :username, presence: true, uniqueness: true 
     validates :password, length: { in: 6..20 }

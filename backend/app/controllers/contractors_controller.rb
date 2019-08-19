@@ -2,13 +2,15 @@ class ContractorsController < ApplicationController
     skip_before_action :define_current_user, only: [ :authenticate, :create, :index ]
 
     def index 
-        contractor = Contractor.all 
-        render json: contractor 
+        contractor = []
+        Contractor.all.each do | seller |
+            contractor.push({ contractor: seller, contractor_skills: seller.skills })
+        end 
+        render json: contractor
     end 
 
     def create
         contractor = Contractor.create(contractor_params)
-        # byebug
         render json: contractor 
     end 
 
@@ -37,7 +39,7 @@ class ContractorsController < ApplicationController
 
 private 
     def contractor_params
-        params.permit(:name, :username, :password, :city, :state, :language)
+        params.permit(:name, :username, :password, :city, :state)
     end 
 
 end 

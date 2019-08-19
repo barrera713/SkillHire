@@ -1,4 +1,4 @@
-import { FETCH_CONTRACTORS, NEW_CONTRACTOR } from './types';
+import { FETCH_CONTRACTORS, NEW_CONTRACTOR, PROFILE_PAGE } from './types';
 import history from '../history';
 
 
@@ -9,6 +9,16 @@ export const fetchContractors = () => dispatch => {
         type: FETCH_CONTRACTORS,
         payload: contractors
     }));
+}
+
+export const profile = () => dispatch => {
+    console.log('inside action')
+    fetch('http://localhost:3000/profile')
+    .then(res => res.json())
+    .then(contractor => dispatch({
+        type: PROFILE_PAGE, 
+        payload: contractor
+    }))
 }
 
 export const createContractor = (contractorData ) => dispatch => {

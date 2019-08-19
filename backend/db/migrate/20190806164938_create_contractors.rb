@@ -7,7 +7,6 @@ class CreateContractors < ActiveRecord::Migration[5.2]
       t.string :password_digest
       t.string :city
       t.string :state 
-      t.string :language
 
       t.timestamps
     end

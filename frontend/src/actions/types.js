@@ -2,7 +2,11 @@ export const NEW_USER = 'NEW USER';
 
 export const NEW_CONTRACTOR = 'NEW CONTRACTOR';
 
-export const FETCH_CONTRACTORS = 'FETCH CONTRACTORS'
+export const PROFILE_PAGE = 'PROFILE PAGE';
+
+export const FETCH_CONTRACTORS = 'FETCH CONTRACTORS';
+
+export const FETCH_REVIEWS = 'FETCH REVIEWS';
 
 export const NEW_SKILL = 'NEW SKILL'; 
 

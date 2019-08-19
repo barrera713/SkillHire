@@ -6,7 +6,7 @@ class SkillsController < ApplicationController
     end 
 
     def create 
-        skill = Skill.create(expertise: skills_params["expertise"], description: skills_params["description"], photographer: skills_params["photographer"], developer: skills_params["developer"], designer: skills_params["designer"], videoeditor: skills_params["videoeditor"], contractor_id: @current_contractor.id)
+        skill = Skill.create(expertise: skills_params["expertise"], description: skills_params["description"], photographer: skills_params["photographer"], developer: skills_params["developer"], designer: skills_params["designer"], videoeditor: skills_params["videoeditor"])
         ContractorSkill.create(skill_id: skill.id, contractor_id: @current_contractor.id)
         render json: skill 
     end 

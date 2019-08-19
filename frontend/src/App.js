@@ -7,7 +7,8 @@ import ReviewForm from './ReviewForm'
 import Default from './Default';
 import LoginPage from './LoginPage';
 import NavBar from './NavBar';
-import ContractorCard from './ContractorCard';
+import ContractorCollection from './ContractorCollection';
+import ContractorProfile from './ContractorProfile';
 
 
 
@@ -20,7 +21,8 @@ function App() {
             <Route exact path='/' component={LoginPage}></Route>
             <Route exact path='/expertise' component={ExpertiseForm}></Route>
             <Route exact path='/review/new' component={ReviewForm}></Route>
-            <Route exact path='/freelancers' component={ContractorCard}></Route>
+            <Route exact path='/freelancers' component={ContractorCollection}></Route>
+            <Route exact path='/profile' component={ContractorProfile}></Route>
             <Route component={Default}></Route>
           </Switch>
       </Router>

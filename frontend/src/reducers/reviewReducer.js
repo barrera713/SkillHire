@@ -1,4 +1,4 @@
-import { NEW_REVIEW } from '../actions/types';
+import { NEW_REVIEW, FETCH_REVIEWS } from '../actions/types';
 
 const initialState = {
     reviews: [],
@@ -7,6 +7,11 @@ const initialState = {
 
 export default function(state = initialState, action) {
     switch (action.type) {
+        case FETCH_REVIEWS:
+            return {
+                ...state,
+                reviews: action.payload
+            }
         case NEW_REVIEW: 
         return {
             ...state,

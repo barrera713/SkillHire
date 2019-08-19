@@ -18,7 +18,6 @@ class ReviewForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log('in handlesubmit')
         const content = {
             "content": e.target["content"].value,
             rating: this.state.rating,

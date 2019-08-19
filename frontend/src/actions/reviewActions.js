@@ -1,8 +1,17 @@
-import { NEW_REVIEW } from './types'
+import { NEW_REVIEW, FETCH_REVIEWS } from './types'
+
+export const fetchReviews = () => dispatch => {
+    fetch('http://localhost:3000/reviews')
+    .then(res => res.json())
+    .then(reviews => dispatch({
+        type: FETCH_REVIEWS,
+        payload: reviews
+    }))
+}
 
 
 export const createReview = (content) => dispatch => {
-    console.log('in action')
+    console.log('it works mudafucka')
     //contractor id needed
     fetch('http://localhost:3000/review/new/:contractor_id', {
         method: 'POST',
@@ -18,3 +27,4 @@ export const createReview = (content) => dispatch => {
         payload: review
     }))
 }
+
