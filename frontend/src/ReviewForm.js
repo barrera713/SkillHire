@@ -2,6 +2,7 @@ import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import { connect } from 'react-redux';
 import { createReview } from './actions/reviewActions';
+import { Button, Form, Label, Header, Container } from 'semantic-ui-react'
 
 
 class ReviewForm extends React.Component {
@@ -18,22 +19,27 @@ class ReviewForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        console.log('inside handleSubmit in ReviewForm')
         const content = {
             "content": e.target["content"].value,
             rating: this.state.rating,
 
             
         }
-        this.props.createReview(content)
+        this.props.createReview(content, this.props.id)
     }
 
     render() {
         const { rating } = this.state;
         return (
-            <div>
-                <form onSubmit={(e) => this.handleSubmit(e)}>
+            <Container>
+                <Form onSubmit={(e) => this.handleSubmit(e)}>
                     <div>
-                        <label>Rating</label>
+                        <Label>Review</Label>
+                        <br></br>
+                        <Form.Input name="content" type="text"/>
+                    </div>
+                    <div>
                         <StarRatingComponent
                         name="rate1"
                         starCount={5}
@@ -41,19 +47,16 @@ class ReviewForm extends React.Component {
                         onStarClick={ (e) => this.onStarClick(e)}
                         />
                     </div>
-                    <div>
-                        <label>Content</label>
-                        <br></br>
-                        <input name="content" type="text"/>
-                    </div>
-                    <button>Submit</button>
-                </form>
-            </div>
+                    <Button>Submit</Button>
+                </Form>
+            </Container>
         )
     }
 }
 
+const mapStateToProps = state => ({
+    data: state.contractors.contractors
+})
 
 
-
-export default connect(null, { createReview })(ReviewForm)
+export default connect(mapStateToProps, { createReview })( ReviewForm )

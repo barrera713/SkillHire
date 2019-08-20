@@ -55,6 +55,13 @@ class NavBar extends Component {
         history.push('/')
     }
 
+    handleBrowse = (e, { name }) => {
+        this.setState({
+            activeItem: name
+        })
+        history.push('/freelancers')
+    }
+
     handleContractorModal = (e, { name }) => this.setState({ 
         activeItem: name,
         contractorSignUp: true
@@ -75,6 +82,7 @@ class NavBar extends Component {
                     <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleHome}/>
                     <Menu.Item name='client sign up' active={activeItem === 'client sign up'} onClick={this.handleUserModal}/>
                     <Menu.Item name='contractor sign up' active={activeItem === 'contractor sign up'} onClick={this.handleContractorModal}/>
+                    <Menu.Item name='browse' active={activeItem === 'browse'} onClick={this.handleBrowse}/>
                 </Menu>
                 <Modal open={this.state.userSignUp} onClose={this.closeUserModal}>
                         <Modal.Content className="content-background">

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/freelancers', to: 'contractors#index'
   post '/contractor/authenticate', to: 'contractors#authenticate'
   post '/start-earning', to: 'contractors#create'
-  get '/profile', to: 'contractors#show'
+  get '/profile/:contractor_id', to: 'contractors#show'
   get '/current-contractor', to: 'contractors#current_contractor'
 
   # Skill 

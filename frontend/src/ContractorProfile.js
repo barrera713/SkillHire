@@ -1,20 +1,18 @@
 import React from 'react';
-import { Container, Header, Button } from 'semantic-ui-react';
+import { Container, Header } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { fetchReviews, createReview } from './actions/reviewActions';
 import { profile } from './actions/contractorActions';
-import magic from './magic';
 import ReviewForm from './ReviewForm';
 
 
 class ContractorProfile extends React.Component {
-    state = {
-        displayForm: false 
-    }
+   
 
     componentDidMount() {
-        this.props.fetchReviews();
-        this.props.profile();
+        this.props.fetchReviews(this.props.match.params.id);
+        this.props.profile(this.props.match.params.id);
+        console.log(this.props)
     }
 
     displayForm = (e) => {
@@ -29,8 +27,8 @@ class ContractorProfile extends React.Component {
         return (
             <div>
                 <Container>
-                    <Header as="h1" textAlign="center">Contractor Name</Header>
-                    <ReviewForm/>
+                    <Header as="h1" textAlign="center">Profile Page</Header>
+                    <ReviewForm id={this.props.match.params.id}/>
                 </Container>
             </div>
         )
@@ -38,8 +36,9 @@ class ContractorProfile extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    sellers: state.contractors.contractors
+    data: state.contractors.contractors
 })
+
   
 
 export default connect(mapStateToProps, { fetchReviews, createReview, profile })(ContractorProfile)

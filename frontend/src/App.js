@@ -22,7 +22,7 @@ function App() {
             <Route exact path='/expertise' component={ExpertiseForm}></Route>
             <Route exact path='/review/new' component={ReviewForm}></Route>
             <Route exact path='/freelancers' component={ContractorCollection}></Route>
-            <Route exact path='/profile' component={ContractorProfile}></Route>
+            <Route exact path='/profile/:id' component={ContractorProfile}></Route>
             <Route component={Default}></Route>
           </Switch>
       </Router>

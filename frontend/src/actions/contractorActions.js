@@ -3,7 +3,12 @@ import history from '../history';
 
 
 export const fetchContractors = () => dispatch => {
-    fetch('http://localhost:3000/freelancers')
+    fetch('http://localhost:3000/freelancers', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    })
     .then( res => res.json())
     .then(contractors => dispatch({
         type: FETCH_CONTRACTORS,
@@ -11,9 +16,14 @@ export const fetchContractors = () => dispatch => {
     }));
 }
 
-export const profile = () => dispatch => {
-    console.log('inside action')
-    fetch('http://localhost:3000/profile')
+export const profile = (id) => dispatch => {
+    console.log('inside profile action:', id)
+    fetch(`http://localhost:3000/profile/${id}`, {
+        method: 'GET', 
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    })
     .then(res => res.json())
     .then(contractor => dispatch({
         type: PROFILE_PAGE, 

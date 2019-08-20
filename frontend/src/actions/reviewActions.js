@@ -1,7 +1,12 @@
 import { NEW_REVIEW, FETCH_REVIEWS } from './types'
 
 export const fetchReviews = () => dispatch => {
-    fetch('http://localhost:3000/reviews')
+    fetch('http://localhost:3000/reviews', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    })
     .then(res => res.json())
     .then(reviews => dispatch({
         type: FETCH_REVIEWS,
@@ -10,10 +15,9 @@ export const fetchReviews = () => dispatch => {
 }
 
 
-export const createReview = (content) => dispatch => {
-    console.log('it works mudafucka')
-    //contractor id needed
-    fetch('http://localhost:3000/review/new/:contractor_id', {
+export const createReview = (content, id) => dispatch => {
+    console.log('inside review action', content, id)
+    fetch(`http://localhost:3000/review/new/${id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
