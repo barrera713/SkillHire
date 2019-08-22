@@ -108,22 +108,25 @@
   top: 0;
   background-color: rgba(0, 128, 0, 0.651);
   border-radius: 8px;
-  width: 300px;
+  width: 350px;
 }
 
 .main-div {
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
   margin: auto;
   padding: auto;
+  background-image: url('https://storage.needpix.com/rsynced_images/landscape-308706_1280.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  padding-top: 5%;
+  margin-left: -2px;
 }
 
 .review-list {
-  background-color: rgba(255, 0, 0, 0.61);
-  /* padding: 40px; */
-  /* position: center; */
-  /* flex: 50%; */
-  width: 300px;
+  background-color: rgba(223, 182, 3, 0.705);
+  width: 350px;
   border-radius: 8px;
   margin-top: 50px;
   padding: 10px;
