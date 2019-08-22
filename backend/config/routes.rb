@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/freelancers', to: 'contractors#index'
   post '/contractor/authenticate', to: 'contractors#authenticate'
   post '/start-earning', to: 'contractors#create'
-  get '/profile/:contractor_id', to: 'contractors#show'
+  get '/profile/:id', to: 'contractors#show'
   get '/current-contractor', to: 'contractors#current_contractor'
 
   # Skill 
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   # Review
   get '/reviews', to: 'reviews#index'
   post '/review/new/:contractor_id', to: 'reviews#create'
+  
   # Current User
   post '/login', to: 'application#user_login'
   get '/current/user', to: 'application#current_user'

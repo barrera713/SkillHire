@@ -1,9 +1,9 @@
-import { NEW_CONTRACTOR, FETCH_CONTRACTORS, PROFILE_PAGE } from '../actions/types';
+import { NEW_CONTRACTOR, FETCH_CONTRACTORS } from '../actions/types';
 
 const initialState = {
     contractors: [],
     contractor: {},
-    profileData: {}
+    searchTerm: ''
 };
 
 export default function(state = initialState, action) {
@@ -18,11 +18,6 @@ export default function(state = initialState, action) {
                 ...state,
                 contractor: action.payload
             };
-        case PROFILE_PAGE:
-            return {
-                ...state,
-                profileData: action.payload
-            }
         default: 
         return state;
     }

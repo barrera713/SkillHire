@@ -1,4 +1,4 @@
-import { FETCH_CONTRACTORS, NEW_CONTRACTOR, PROFILE_PAGE } from './types';
+import { FETCH_CONTRACTORS, NEW_CONTRACTOR } from './types';
 import history from '../history';
 
 
@@ -16,21 +16,6 @@ export const fetchContractors = () => dispatch => {
     }));
 }
 
-export const profile = (id) => dispatch => {
-    console.log('inside profile action:', id)
-    fetch(`http://localhost:3000/profile/${id}`, {
-        method: 'GET', 
-        headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-    })
-    .then(res => res.json())
-    .then(contractor => dispatch({
-        type: PROFILE_PAGE, 
-        payload: contractor
-    }))
-}
-
 export const createContractor = (contractorData ) => dispatch => {
     fetch('http://localhost:3000/start-earning', {
         method: 'POST',
@@ -44,7 +29,7 @@ export const createContractor = (contractorData ) => dispatch => {
         type: NEW_CONTRACTOR,
         payload: contractor
     }))
-    .then(()=> {
+    .then(() => {
         fetch('http://localhost:3000/login', {
             method: 'POST', 
             headers: {
@@ -57,6 +42,7 @@ export const createContractor = (contractorData ) => dispatch => {
         history.push('/expertise')
     })
 }
+
 
 
 

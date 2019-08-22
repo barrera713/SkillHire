@@ -32,12 +32,12 @@ class ReviewForm extends React.Component {
     render() {
         const { rating } = this.state;
         return (
-            <Container>
+            <div className="review-form">
                 <Form onSubmit={(e) => this.handleSubmit(e)}>
                     <div>
                         <Label>Review</Label>
                         <br></br>
-                        <Form.Input name="content" type="text"/>
+                        <Form.Input name="content" type="text" onChange={this.handleChange}/>
                     </div>
                     <div>
                         <StarRatingComponent
@@ -49,13 +49,14 @@ class ReviewForm extends React.Component {
                     </div>
                     <Button>Submit</Button>
                 </Form>
-            </Container>
+            </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    data: state.contractors.contractors
+    data: state.contractors.contractors,
+    reviews: state.reviews
 })
 
 

@@ -15,14 +15,19 @@ class ContractorsController < ApplicationController
     end 
 
     def show
-        contractor = Contractor.find(params[:id])
+        contractor = []
+        seller = Contractor.find(params[:id])
+        contractor.push(seller)
+        contractor.push( { reviews: seller.reviews, skills: seller.skills })
         render json: contractor 
     end 
+
 
     def update 
         contractor = Contractor.find(params[:id])
         contractor.update (user_params)
     end 
+
 
     def authenticate
         contractor = Contractor.find_by(username: params[:username])
@@ -37,9 +42,9 @@ class ContractorsController < ApplicationController
         render json: @current_contractor
     end 
 
-private 
+
     def contractor_params
-        params.permit(:name, :username, :password, :city, :state)
+        params.permit(:name, :username, :email, :password, :city, :state)
     end 
 
 end 

@@ -1,18 +1,5 @@
-import { NEW_REVIEW, FETCH_REVIEWS } from './types'
+import { NEW_REVIEW } from './types'
 
-export const fetchReviews = () => dispatch => {
-    fetch('http://localhost:3000/reviews', {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-    })
-    .then(res => res.json())
-    .then(reviews => dispatch({
-        type: FETCH_REVIEWS,
-        payload: reviews
-    }))
-}
 
 
 export const createReview = (content, id) => dispatch => {

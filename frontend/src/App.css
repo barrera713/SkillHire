@@ -13,10 +13,16 @@
   background-color: #EBF7E3;
 }
 
-
+/* https://i.pinimg.com/originals/0c/96/b1/0c96b19dc89ffdaa7ff737cfc04a095f.png */
 .login-background {
- background-color: #5b7866;
+ background-image: url('https://cdn.pixabay.com/photo/2012/08/27/14/19/evening-55067_960_720.png');
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 100vh;
+ background-position: top;
+ padding-top: 10%;
 }
+
 
 .App-header {
   background-color: #282c34;
@@ -67,13 +73,84 @@
 
 
 .ui.inverted.segment.navbar {
-  border-radius: 0px;
+  border-radius: 0%;
+  margin-bottom: 0%;
 }
 
 .ui.container.form-background {
-  background:#EBF7E3;
+  background: rgba(255, 255, 255, 0);
+  width: 30%;
+}
+
+.ui.form.user-form {
+  background: rgba(255, 255, 255, 0.383);
+}
+
+.ui.form.skill-form {
+  background: rgba(255, 255, 255, 0);
+  width: 35%;
+  padding-top: 0%;
+  margin-left: 33%;
+}
+
+.profile-img {
+  /* width: auto; */
+  max-width: 20vh;
+
+}
+.center-my-img {
+    overflow: hidden; 
+    text-align:center
+}
+
+.review-form {
+  position: top;
+  top: 0;
+  background-color: rgba(0, 128, 0, 0.651);
+  border-radius: 8px;
+  width: 300px;
+}
+
+.main-div {
+  display: flex;
+  height: 100vh;
+  margin: auto;
+  padding: auto;
+}
+
+.review-list {
+  background-color: rgba(255, 0, 0, 0.61);
+  /* padding: 40px; */
+  /* position: center; */
+  /* flex: 50%; */
+  width: 300px;
+  border-radius: 8px;
+  margin-top: 50px;
+  padding: 10px;
+  
+}
+
+.review-list p {
+  word-wrap: break-word;
 }
 
 
+.secondary-div {
+  height: 33%;
+  flex: 50%;
+}
 
+.seller{
+  width: 33vw;
+  height: 100vh;
+  margin-left: 85px;
+  margin-top: 20px; 
+  text-align: center;
+  padding: 5px;
+}
 
+.review-container{
+  margin-top: 20px;
+  padding: 5px;
+  /* margin:auto; */
+}

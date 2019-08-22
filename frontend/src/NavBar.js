@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createUser } from './actions/userActions';
 import { createContractor } from './actions/contractorActions'
-import { Menu, Segment, Modal, Button, Form, Label } from 'semantic-ui-react';
+import { searchTerm } from './actions/NavBarActions';
+import { Menu, Segment, Modal, Button, Form, Label, Input } from 'semantic-ui-react';
 import history from './history'
 
 
 
 class NavBar extends Component {
 
+
     state = { 
         activeItem: 'home',
         userSignUp: false,
-        contractorSignUp: false,
+        contractorSignUp: false
     }
     
     handleSubmit = (e) => {
@@ -33,6 +35,7 @@ class NavBar extends Component {
             "name": e.target["name"].value,
             "username": e.target["username"].value,
             "password": e.target["password"].value,
+            "email": e.target["email"].value,
             "city": e.target["city"].value,
             "state": e.target["state"].value
         };
@@ -71,22 +74,35 @@ class NavBar extends Component {
         this.setState({ contractorSignUp: !this.state.contractorSignUp })
     }
 
+    searchChange = (e) => {
+      this.props.searchTerm(e.target.value)
+      console.log(e.target.value)
+    }
 
-    render() {
+
+
+    render() {        
 
         const { activeItem } = this.state
       
         return (
-            <Segment inverted className="navbar">
+             <Segment inverted className="navbar">
                 <Menu inverted pointing secondary>
                     <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleHome}/>
                     <Menu.Item name='client sign up' active={activeItem === 'client sign up'} onClick={this.handleUserModal}/>
                     <Menu.Item name='contractor sign up' active={activeItem === 'contractor sign up'} onClick={this.handleContractorModal}/>
+                    {['/freelancers'].includes(history.location.pathname) ? null :
                     <Menu.Item name='browse' active={activeItem === 'browse'} onClick={this.handleBrowse}/>
+                    }
+                    <Menu.Item>
+                    {['/freelancers'].includes(history.location.pathname) ? 
+                        <Input icon='search' placeholder="Search Freelancer..." onChange={ (e) => this.searchChange(e)}/>
+                        : null }
+                    </Menu.Item>
                 </Menu>
-                <Modal open={this.state.userSignUp} onClose={this.closeUserModal}>
+                <Modal open={this.state.userSignUp} onClose={this.closeUserModal} >
                         <Modal.Content className="content-background">
-                            <Form onSubmit={this.handleSubmit} className="form-background">
+                            <Form onSubmit={this.handleSubmit} className="user-form">
                                 <Label>Name</Label>
                                 <Form.Input fluid Label name="name" placeholder="Full Name" type="text" />
                                 <Label>Username</Label>
@@ -110,6 +126,8 @@ class NavBar extends Component {
                             <Form.Input name="username" placeholder="username" type="text"  />
                             <Label>Password</Label>
                             <Form.Input name="password" placeholder="password" type="password"  />
+                            <Label>Email</Label>
+                            <Form.Input name="email" placeholder="email" type="email"  />
                             <Label>City</Label>
                             <Form.Input name="city" placeholder="city" type="text"  />
                             <Label>State</Label>
@@ -118,10 +136,10 @@ class NavBar extends Component {
                         </Form>
                         </Modal.Content>
                     </Modal>
-            </Segment>
+            </Segment> 
         )
     }
 }
 
-export default connect(null, { createUser, createContractor })(NavBar);
+export default connect(null, { createUser, createContractor, searchTerm })(NavBar);
 

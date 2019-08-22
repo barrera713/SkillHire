@@ -5,6 +5,7 @@ class Contractor < ApplicationRecord
     has_many :contractor_skills
     has_many :skills, through: :contractor_skills
     validates :username, presence: true, uniqueness: true 
+    validates :email, uniqueness: true 
     validates :password, length: { in: 6..20 }
 
     def auth_token

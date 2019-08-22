@@ -38,8 +38,8 @@ class ExpertiseForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <Form className="login-background" onSubmit={ (e) => this.handleSubmit(e)}>
+            <div className="login-background">
+                <Form className="skill-form" onSubmit={ (e) => this.handleSubmit(e)}>
             <h1>Contractor Expertise</h1>
                     <div>
                         <Header as='h3'>How would you like to market yourself?</Header>
