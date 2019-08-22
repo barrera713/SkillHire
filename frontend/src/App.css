@@ -10,7 +10,7 @@
 
 .body {
   font-family: 'Oswald', sans-serif !important;
-  background-color: #EBF7E3;
+  background-color: rgba(158, 187, 146, 0.596);
 }
 
 /* https://i.pinimg.com/originals/0c/96/b1/0c96b19dc89ffdaa7ff737cfc04a095f.png */
@@ -154,3 +154,10 @@
   padding: 5px;
   /* margin:auto; */
 }
+
+
+.collection-background {
+  margin-top: 10px;
+
+}
+

@@ -20,8 +20,8 @@ class ReviewsController < ApplicationController
         review.update(reviews_params)
     end 
 
-     def reviews_params
-        params.permit(:rating, :content, :contractor_id, :user_id)
+    def reviews_params
+        params.permit(:rating, :content, :contractor_id, :user_id) 
     end 
 
 end 

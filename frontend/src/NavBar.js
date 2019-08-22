@@ -5,6 +5,8 @@ import { createContractor } from './actions/contractorActions'
 import { searchTerm } from './actions/NavBarActions';
 import { Menu, Segment, Modal, Button, Form, Label, Input } from 'semantic-ui-react';
 import history from './history'
+import { Link } from 'react-router-dom';
+import { profile } from './actions/ProfileActions';
 
 
 
@@ -27,6 +29,7 @@ class NavBar extends Component {
             "state": e.target["state"].value
         };
         this.props.createUser(userData)
+        this.closeUserModal(e)
     }
 
     contractorSubmit = (e) => {
@@ -40,6 +43,7 @@ class NavBar extends Component {
             "state": e.target["state"].value
         };
         this.props.createContractor(contractorData)
+        this.closeContractorModal(e)
     }
 
     handleUserModal = (e, { name }) => this.setState({ 
@@ -53,7 +57,7 @@ class NavBar extends Component {
 
     handleHome = (e) => {
         this.setState({
-            activeItem: 'home'
+            activeItem: 'login'
         })
         history.push('/')
     }
@@ -75,8 +79,15 @@ class NavBar extends Component {
     }
 
     searchChange = (e) => {
+        e.preventDefault()
       this.props.searchTerm(e.target.value)
       console.log(e.target.value)
+      history.push('/freelancers')
+    }
+    
+    logOut() {
+        localStorage.clear()
+        window.location = '/'
     }
 
 
@@ -88,21 +99,23 @@ class NavBar extends Component {
         return (
              <Segment inverted className="navbar">
                 <Menu inverted pointing secondary>
-                    <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleHome}/>
+                    <Menu.Item name='login' active={activeItem === 'login'} onClick={this.handleHome}/>
                     <Menu.Item name='client sign up' active={activeItem === 'client sign up'} onClick={this.handleUserModal}/>
                     <Menu.Item name='contractor sign up' active={activeItem === 'contractor sign up'} onClick={this.handleContractorModal}/>
-                    {['/freelancers'].includes(history.location.pathname) ? null :
+                    {['/freelancers', '/profile/:id'].includes(history.location.pathname) ? null :
                     <Menu.Item name='browse' active={activeItem === 'browse'} onClick={this.handleBrowse}/>
                     }
                     <Menu.Item>
                     {['/freelancers'].includes(history.location.pathname) ? 
-                        <Input icon='search' placeholder="Search Freelancer..." onChange={ (e) => this.searchChange(e)}/>
+                        <Input icon='search' placeholder="Search..." onChange={ (e) => this.searchChange(e)}/>
                         : null }
+                    </Menu.Item>
+                    <Menu.Item name="log out" onClick={this.logOut} > 
                     </Menu.Item>
                 </Menu>
                 <Modal open={this.state.userSignUp} onClose={this.closeUserModal} >
                         <Modal.Content className="content-background">
-                            <Form onSubmit={this.handleSubmit} className="user-form">
+                            <Form onSubmit={ (e) => this.handleSubmit(e)} className="user-form">
                                 <Label>Name</Label>
                                 <Form.Input fluid Label name="name" placeholder="Full Name" type="text" />
                                 <Label>Username</Label>
@@ -119,7 +132,7 @@ class NavBar extends Component {
                     </Modal>
                     <Modal open={this.state.contractorSignUp} onClose={this.closeContractorModal}>
                         <Modal.Content className="content-background">
-                            <Form onSubmit={this.contractorSubmit}>
+                            <Form onSubmit={ (e) => this.contractorSubmit(e)}>
                             <Label>Name</Label>
                             <Form.Input name="name" placeholder="name" type="text"  />
                             <Label>Username</Label>
@@ -141,5 +154,5 @@ class NavBar extends Component {
     }
 }
 
-export default connect(null, { createUser, createContractor, searchTerm })(NavBar);
+export default connect(null, { createUser, createContractor, searchTerm, profile })(NavBar);
 

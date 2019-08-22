@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image, Button, Grid, Container } from 'semantic-ui-react';
+import { Card, Icon, Image, Button, Grid, Container, Header } from 'semantic-ui-react';
 import { fetchContractors } from './actions/contractorActions';
 import { profile } from './actions/ProfileActions';
 import { connect } from 'react-redux';
@@ -76,7 +76,7 @@ class ContractorCollection extends React.Component {
         
     
         return (
-        <div>
+        <div className="collection-background">
         {!!searchTerm.searchTerm && searchTerm.searchTerm.length > 0 ? 
             <Container>
                <Grid relaxed columns={4}>

@@ -27,7 +27,6 @@ class HomePage extends React.Component {
         return (
             <div className="login-background">
                 <Container className="form-background">
-                <Header as="h2" textAlign="center">Login</Header>
                     <Form onSubmit = {this.handleSubmit} className="form">
                         <Label>Username</Label>
                         <Form.Input name="username" placeholder="username" type="text" />

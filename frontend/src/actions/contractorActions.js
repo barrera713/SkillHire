@@ -1,4 +1,4 @@
-import { FETCH_CONTRACTORS, NEW_CONTRACTOR } from './types';
+import { FETCH_CONTRACTORS, NEW_CONTRACTOR, CURRENT_USER } from './types';
 import history from '../history';
 
 
@@ -38,9 +38,24 @@ export const createContractor = (contractorData ) => dispatch => {
             body: JSON.stringify(contractorData)
         })
         .then( res => res.json())
-        .then( user => localStorage.setItem('token', user.auth_token))
-        history.push('/expertise')
+        .then( user => {
+            localStorage.setItem('token', user.auth_token)
+            fetch('http://localhost:3000/current/user', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+            .then( res => res.json())
+            .then( current_user => dispatch({
+                type: CURRENT_USER,
+                payload: current_user
+            }))
+        
+        })
     })
+    history.push('/expertise')
+    
 }
 
 

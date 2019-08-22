@@ -1,8 +1,8 @@
 import { NEW_SKILL} from './types';
+import history from '../history';
 
 
 export const createSkill = (formData) => dispatch => {
-    
     fetch('http://localhost:3000/expertise', {
         method: 'POST', 
         headers: {
@@ -17,5 +17,4 @@ export const createSkill = (formData) => dispatch => {
         payload: skill
         })
     )
-    console.log('skill created')
 }

@@ -30,10 +30,6 @@ class ContractorProfile extends React.Component {
         let allReviews = profileData[1]
         // console.log('this', allReviews)
         
-
-        
-
-       
         
     
         let seller = (<div className= 'seller'>
