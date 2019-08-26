@@ -80,9 +80,9 @@ class ContractorCollection extends React.Component {
         <div className="collection-background">
         {!!searchTerm.searchTerm && searchTerm.searchTerm.length > 0 ? 
             <Container>
-               <Grid relaxed columns={4}>
+               <Grid.Column relaxed columns={4}>
                   {nameCard}
-                </Grid>
+                </Grid.Column>
             </Container>
             :
             <Container>

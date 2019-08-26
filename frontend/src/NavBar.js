@@ -105,6 +105,8 @@ class NavBar extends Component {
                     {['/freelancers', '/profile/:id'].includes(history.location.pathname) ? null :
                     <Menu.Item name='browse' active={activeItem === 'browse'} onClick={this.handleBrowse}/>
                     }
+                    <Menu.Menu position='right'>
+
                     <Menu.Item>
                     {['/freelancers'].includes(history.location.pathname) ? 
                         <Input icon='search' placeholder="Search..." onChange={ (e) => this.searchChange(e)}/>
@@ -112,6 +114,8 @@ class NavBar extends Component {
                     </Menu.Item>
                     <Menu.Item name="log out" onClick={this.logOut} > 
                     </Menu.Item>
+                        </Menu.Menu>
+
                 </Menu>
                 <Modal open={this.state.userSignUp} onClose={this.closeUserModal} >
                         <Modal.Content className="content-background">

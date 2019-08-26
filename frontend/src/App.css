@@ -10,7 +10,8 @@
 
 .body {
   font-family: 'Oswald', sans-serif !important;
-  background-color: rgba(158, 187, 146, 0.596);
+  background-color: rgba(94, 189, 94, 0.397);
+  height: 100%;
 }
 
 /* https://i.pinimg.com/originals/0c/96/b1/0c96b19dc89ffdaa7ff737cfc04a095f.png */
@@ -104,19 +105,23 @@
 }
 
 .review-form {
+  padding: 15px;
   position: top;
   top: 0;
   background-color: rgba(0, 128, 0, 0.651);
   border-radius: 8px;
-  width: 350px;
+  width: 450px;
 }
-
+.raulplz{
+  margin-bottom: 10px;
+  text-align: center;
+}
 .main-div {
+  height: 100vh;
   display: flex;
-  /* height: 100vh; */
   margin: auto;
   padding: auto;
-  background-image: url('https://storage.needpix.com/rsynced_images/landscape-308706_1280.png');
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a138b339-1ffd-4098-9069-0cf192a7bd1d/da4r9or-368ae606-719c-48aa-a5d7-ebed2e518c4a.png/v1/fill/w_1024,h_641,strp/flat_design_landscape_by_plasticboredom_da4r9or-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQxIiwicGF0aCI6IlwvZlwvYTEzOGIzMzktMWZmZC00MDk4LTkwNjktMGNmMTkyYTdiZDFkXC9kYTRyOW9yLTM2OGFlNjA2LTcxOWMtNDhhYS1hNWQ3LWViZWQyZTUxOGM0YS5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.vhrVqdgLo6keCOJY0twa71kLhcWeifmOqr-bRgwpnns');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -125,12 +130,19 @@
 }
 
 .review-list {
-  background-color: rgba(223, 182, 3, 0.705);
-  width: 350px;
+  background-color: rgba(238, 201, 39, 0.466);
+  width: 450px;
   border-radius: 8px;
   margin-top: 50px;
   padding: 10px;
+  height: 40%;
   
+}
+
+.the-review{
+  font-family: 'Roboto Condensed', sans-serif;
+  height: 15%;
+
 }
 
 .review-list p {
@@ -145,11 +157,15 @@
 
 .seller{
   width: 33vw;
-  height: 100vh;
+  height: 70vh;
   margin-left: 85px;
   margin-top: 20px; 
   text-align: center;
-  padding: 5px;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.178);
+  border-radius: 20px;
+  margin-right: 95px;
+
 }
 
 .review-container{
@@ -161,6 +177,7 @@
 
 .collection-background {
   margin-top: 10px;
-
+  /* background-color: rgba(94, 189, 94, 0.397); */
+  height: 100vh;
 }
 

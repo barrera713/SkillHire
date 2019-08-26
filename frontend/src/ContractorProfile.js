@@ -49,6 +49,7 @@ class ContractorProfile extends React.Component {
         let listReviews = allReviews.reviews.map( review => {
             return(<div className = 'the-review'>
                 <p>{review.content}</p>
+                <hr/>
             </div>
             )
         })

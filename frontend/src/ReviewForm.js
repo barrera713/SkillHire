@@ -35,8 +35,8 @@ class ReviewForm extends React.Component {
             <div className="review-form">
                 <Form onSubmit={(e) => this.handleSubmit(e)}>
                     <div>
-                        <Label>Review</Label>
-                        <br></br>
+                        <h3 className="raulplz">Leave a review</h3>
+                       
                         <Form.Input name="content" type="text" onChange={this.handleChange}/>
                     </div>
                     <div>
