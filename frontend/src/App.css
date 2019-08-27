@@ -100,15 +100,15 @@
 
 }
 .center-my-img {
-    overflow: hidden; 
-    text-align:center
+  overflow: hidden; 
+  text-align: center;
 }
 
 .review-form {
   padding: 15px;
   position: top;
   top: 0;
-  background-color: rgba(0, 128, 0, 0.651);
+  background-color: rgba(15, 156, 15, 0.507);
   border-radius: 8px;
   width: 450px;
 }
@@ -116,6 +116,7 @@
   margin-bottom: 10px;
   text-align: center;
 }
+
 .main-div {
   height: 100vh;
   display: flex;
@@ -156,7 +157,7 @@
 }
 
 .seller{
-  width: 33vw;
+  width: 25vw;
   height: 70vh;
   margin-left: 85px;
   margin-top: 20px; 

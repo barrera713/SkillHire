@@ -10,7 +10,7 @@ import magic from './magic';
 class ContractorProfile extends React.Component {
    
 
-    componentDidMount() {
+     componentDidMount() {
         this.props.profile(this.props.match.params.id);
     }
     
@@ -23,41 +23,46 @@ class ContractorProfile extends React.Component {
    
     
     render() {
-        console.log('wutt this?', this.props.review)
-        let currentReview = this.props.review
+        // console.log('wutt this?', this.props.review)
         let profileData = this.props.info.data
         let userCard = profileData
-        let allReviews = profileData[1]
-        // console.log('this', allReviews)
-        
-        
-    
+        // all reviews
+        let sellerData = profileData[1]
+        // all skills 
+
+        let skillSet = sellerData.skills.map( skill => {
+            return(<div>
+                <h3>{magic(skill.expertise)}</h3>
+                <p>{skill.description}</p>
+                </div>)
+        })
+            
         let seller = (<div className= 'seller'>
             <div className= 'center-my-img'>
             <img src='https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png' alt="" className="profile-img"/>
-
             </div>
             <h1>{magic(userCard[0].name)}</h1>
+            {skillSet}
             <hr/>
             <p>{`${magic(userCard[0].city)}, ${magic(userCard[0].state)}`}</p>
-            <h4>{userCard[0].email}</h4>
+            <h3>{userCard[0].email}</h3>
             </div>)
-        
 
         // console.log('usercard', userCard)
+        
 
-        let listReviews = allReviews.reviews.map( review => {
+        
+        let listReviews = sellerData.reviews.map( review => {
             return(<div className = 'the-review'>
                 <p>{review.content}</p>
                 <hr/>
             </div>
             )
         })
-
+        
         return (
             <div className="main-div">
                     {seller}
-
                 <div className= 'review-container'>
 
                     <ReviewForm id={this.props.match.params.id}/>

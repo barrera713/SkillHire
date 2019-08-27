@@ -1,7 +1,7 @@
 import { PROFILE_PAGE, NEW_REVIEW } from '../actions/types';
 
 const initialState = {
-    data: [ {name: "", city: '', email: '', state: ''}, {skill: [], reviews: []}]
+    data: [ {name: "", city: '', email: '', state: ''}, {skills: [], reviews: []}]
 }
 
 
