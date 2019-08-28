@@ -67,7 +67,7 @@ class ContractorCollection extends React.Component {
                     image='https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'
                     header={magic(i.contractor.name)}
                     meta={magic(skill.expertise)}
-                    extra={skill.description}
+                    // extra={skill.description}
                     description={`${magic(i.contractor.city)}, ${magic(i.contractor.state)}`}
                 />
             })

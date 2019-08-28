@@ -10,18 +10,19 @@
 
 .body {
   font-family: 'Oswald', sans-serif !important;
-  background-color: rgba(94, 189, 94, 0.397);
-  height: 100%;
+  background-color: rgba(245, 245, 245, 0.986);
+  height: 100vh;
 }
 
 /* https://i.pinimg.com/originals/0c/96/b1/0c96b19dc89ffdaa7ff737cfc04a095f.png */
 .login-background {
- background-image: url('https://cdn.pixabay.com/photo/2012/08/27/14/19/evening-55067_960_720.png');
+ background-image: url('https://forums.unrealengine.com/filedata/fetch?id=1189160&d=1470406352');
  background-repeat: no-repeat;
  background-size: cover;
  height: 100vh;
  background-position: top;
  padding-top: 10%;
+
 }
 
 
@@ -108,7 +109,7 @@
   padding: 15px;
   position: top;
   top: 0;
-  background-color: rgba(15, 156, 15, 0.507);
+  background-color: rgba(76, 166, 250, 0.521);
   border-radius: 8px;
   width: 450px;
 }
@@ -122,16 +123,17 @@
   display: flex;
   margin: auto;
   padding: auto;
-  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a138b339-1ffd-4098-9069-0cf192a7bd1d/da4r9or-368ae606-719c-48aa-a5d7-ebed2e518c4a.png/v1/fill/w_1024,h_641,strp/flat_design_landscape_by_plasticboredom_da4r9or-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQxIiwicGF0aCI6IlwvZlwvYTEzOGIzMzktMWZmZC00MDk4LTkwNjktMGNmMTkyYTdiZDFkXC9kYTRyOW9yLTM2OGFlNjA2LTcxOWMtNDhhYS1hNWQ3LWViZWQyZTUxOGM0YS5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.vhrVqdgLo6keCOJY0twa71kLhcWeifmOqr-bRgwpnns');
+  /* background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a138b339-1ffd-4098-9069-0cf192a7bd1d/da4r9or-368ae606-719c-48aa-a5d7-ebed2e518c4a.png/v1/fill/w_1024,h_641,strp/flat_design_landscape_by_plasticboredom_da4r9or-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQxIiwicGF0aCI6IlwvZlwvYTEzOGIzMzktMWZmZC00MDk4LTkwNjktMGNmMTkyYTdiZDFkXC9kYTRyOW9yLTM2OGFlNjA2LTcxOWMtNDhhYS1hNWQ3LWViZWQyZTUxOGM0YS5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.vhrVqdgLo6keCOJY0twa71kLhcWeifmOqr-bRgwpnns');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top;
+  background-position: top; */
+  background-color: rgba(245, 245, 245, 0.986);
   padding-top: 5%;
   margin-left: -2px;
 }
 
 .review-list {
-  background-color: rgba(238, 201, 39, 0.466);
+  background-color: rgba(76, 166, 250, 0.521);
   width: 450px;
   border-radius: 8px;
   margin-top: 50px;
@@ -163,7 +165,7 @@
   margin-top: 20px; 
   text-align: center;
   padding: 50px;
-  background-color: rgba(0, 0, 0, 0.178);
+  background-color: rgba(76, 166, 250, 0.521);
   border-radius: 20px;
   margin-right: 95px;
 
@@ -178,7 +180,7 @@
 
 .collection-background {
   margin-top: 10px;
-  /* background-color: rgba(94, 189, 94, 0.397); */
-  height: 100vh;
+  background-color: rgba(245, 245, 245, 0.986);
+  /* height: 100vh; */
 }
 

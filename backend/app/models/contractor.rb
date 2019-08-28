@@ -16,4 +16,5 @@ class Contractor < ApplicationRecord
         super.except('password_digest')
     end
     
+
 end
