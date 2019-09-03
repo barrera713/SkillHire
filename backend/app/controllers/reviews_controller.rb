@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
     def create 
         review = Review.create(rating: reviews_params["rating"], content: reviews_params["content"], user_id: @current_user.id, contractor_id: params[:contractor_id])
-        render json: review 
+        render json: review, methods: [ :user ] 
     end 
 
     def show

@@ -2,8 +2,7 @@ import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import { connect } from 'react-redux';
 import { createReview } from './actions/reviewActions';
-import { profile } from './actions/ProfileActions';
-import { Button, Form, Label, Header, Container } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 
 
 class ReviewForm extends React.Component {
@@ -20,15 +19,16 @@ class ReviewForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log('inside handleSubmit in ReviewForm')
         const content = {
             "content": e.target["content"].value,
             rating: this.state.rating,
-
+            
             
         }
         this.props.createReview(content, this.props.id)
+        console.log('inside handleSubmit in ReviewForm', content, this.props.id)
         // this.props.profile(this.props.id)
+        
     }
 
     render() {
@@ -58,8 +58,9 @@ class ReviewForm extends React.Component {
 
 const mapStateToProps = state => ({
     data: state.contractors.contractors,
-    reviews: state.reviews
+    reviews: state.reviews,
+    id: state.profileData.data.id
 })
 
 
-export default connect(mapStateToProps, { createReview, profile })( ReviewForm )
+export default connect(mapStateToProps, { createReview })( ReviewForm )

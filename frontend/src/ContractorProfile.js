@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Header, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { createReview } from './actions/reviewActions';
+// import { createReview } from './actions/reviewActions';
 import { profile } from './actions/ProfileActions';
 import ReviewForm from './ReviewForm';
 import capitalize from './magic';
@@ -24,11 +24,13 @@ class ContractorProfile extends React.Component {
         let sellerReviews = sellerData.reviews
         console.log(sellerReviews)
 
+        
         let reviewList = sellerReviews.map(i => {
-            return(<div>
-                <p>{capitalize(i.user.name)} | {i.content} | {i.rating} stars</p>
-            </div>)
+        return(<div>
+        <p>{capitalize(i.user.name)} | {i.content} | {i.rating} stars</p>
+        </div>)
         })
+        
 
        
         
@@ -70,4 +72,4 @@ const mapStateToProps = state => ({
 
 
 
-export default connect(mapStateToProps, { createReview, profile })(ContractorProfile)
+export default connect(mapStateToProps, { profile })(ContractorProfile)

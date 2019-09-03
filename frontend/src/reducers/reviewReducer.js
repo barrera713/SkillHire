@@ -9,7 +9,10 @@ export default function(state = initialState, action) {
         case NEW_REVIEW: 
         return {
             ...state,
-            newReview: action.payload
+            newReview: { 
+                ...action.payload,
+                user: null // <- action.current_user,
+            }
         };
         default:
         return state;

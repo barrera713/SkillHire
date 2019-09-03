@@ -13,7 +13,6 @@ class ContractorCollection extends React.Component {
     
     componentDidMount() {
         this.props.fetchContractors();
-        this.props.profile()
     }
 
     handleClick = () => {
