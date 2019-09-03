@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createReview } from './actions/reviewActions';
 import { profile } from './actions/ProfileActions';
 import ReviewForm from './ReviewForm';
-import magic from './magic';
+import capitalize from './magic';
 
 
 class ContractorProfile extends React.Component {
@@ -18,13 +18,17 @@ class ContractorProfile extends React.Component {
     render() {
         
         let sellerData = this.props.contractor
+        console.log(sellerData)
+        let sellerSkill = sellerData.skills
+        console.log(sellerSkill)
+        let sellerReviews = sellerData.reviews
+        console.log(sellerReviews)
 
-        let sellerSkill = [{}]
-
-        if(sellerData.skills){
-            sellerSkill = sellerData.skills
-            console.log("here", sellerSkill[0])
-        }
+        let reviewList = sellerReviews.map(i => {
+            return(<div>
+                <p>{capitalize(i.user.name)} | {i.content} | {i.rating} stars</p>
+            </div>)
+        })
 
        
         
@@ -34,20 +38,25 @@ class ContractorProfile extends React.Component {
                 <div className= 'center-my-img'>
             <img src='https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png' alt="" className="profile-img"/>
                 </div>
-                { sellerData.name ? <h1>{magic(sellerData.name)}</h1> : null }
-                <h3>{sellerSkill[0].expertise}</h3>
-                <p>{sellerSkill[0].description}</p>
+                <h1>{capitalize(sellerData.name)}</h1>
+                <h3>{capitalize(sellerSkill[0].expertise)}</h3>
+                <p>{sellerSkill.description}</p>
                 <h3>{sellerData.email}</h3> 
                 <hr/>
-                { sellerData.city && sellerData.state ? 
-                <p>{`${magic(sellerData.city)}, ${magic(sellerData.state)}`}</p> : null }
+                <p>{`${capitalize(sellerData.city)}, ${capitalize(sellerData.state)}`}</p>
             </div>)
 
 
 
         return(
             <div className="main-div">
-             {userCard}
+                <div>
+                    {userCard}
+                </div>
+                <div>
+                    <ReviewForm/>
+                    {reviewList}
+                </div>
             </div>
         )
         

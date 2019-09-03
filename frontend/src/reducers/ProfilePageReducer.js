@@ -1,7 +1,12 @@
 import { PROFILE_PAGE, NEW_REVIEW } from '../actions/types';
 
 const initialState = {
-    data: [ { seller: [], skills: {}, reviews: {}, clients: [] } ]
+    data: { id: 0, name: '', city: '', state: '', email: '', 
+        reviews: [{id: 0, rating: 0, content: '', contractor_id: 0, user_id: 0, 
+            user: { id: 0, name: '', city: '', state: '', username: ''}
+        }],
+        skills: [{ id: 0, expertise: '', description: '', photographer: false, developer: false, designer: false, videoeditor: false }] 
+    }
 };
 
 
@@ -16,13 +21,9 @@ export default function(state = initialState, action) {
             // console.log('ugabuga', action.payload)
             return {
                 ...state,
-                data: [
-                    state.data[0],
-                    {
-                        ...state.data[1],
-                        reviews: [...state.data[1].reviews, action.payload] 
-                    }
-                ]
+                data: {
+
+                }    
             };
         default: 
         return state;
