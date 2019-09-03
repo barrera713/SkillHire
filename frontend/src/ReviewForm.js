@@ -2,6 +2,7 @@ import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import { connect } from 'react-redux';
 import { createReview } from './actions/reviewActions';
+import { profile } from './actions/ProfileActions';
 import { Button, Form, Label, Header, Container } from 'semantic-ui-react'
 
 
@@ -27,6 +28,7 @@ class ReviewForm extends React.Component {
             
         }
         this.props.createReview(content, this.props.id)
+        // this.props.profile(this.props.id)
     }
 
     render() {
@@ -60,4 +62,4 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps, { createReview })( ReviewForm )
+export default connect(mapStateToProps, { createReview, profile })( ReviewForm )

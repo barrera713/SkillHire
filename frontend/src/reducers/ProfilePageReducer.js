@@ -1,8 +1,8 @@
 import { PROFILE_PAGE, NEW_REVIEW } from '../actions/types';
 
 const initialState = {
-    data: [ {name: "", city: '', email: '', state: ''}, {skills: [], reviews: []}, [{ name: '', username: '', city: '', state: ''}] ]
-}
+    data: [ { seller: [], skills: {}, reviews: {}, clients: [] } ]
+};
 
 
 export default function(state = initialState, action) {
@@ -13,13 +13,14 @@ export default function(state = initialState, action) {
                 data: action.payload
             };   
             case NEW_REVIEW: 
+            // console.log('ugabuga', action.payload)
             return {
                 ...state,
                 data: [
                     state.data[0],
                     {
                         ...state.data[1],
-                        reviews: [...state.data[1].reviews, action.payload]
+                        reviews: [...state.data[1].reviews, action.payload] 
                     }
                 ]
             };
@@ -27,3 +28,4 @@ export default function(state = initialState, action) {
         return state;
     }
 }
+

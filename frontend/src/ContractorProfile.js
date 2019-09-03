@@ -8,91 +8,55 @@ import magic from './magic';
 
 
 class ContractorProfile extends React.Component {
-   
 
-     componentDidMount() {
+    
+    componentDidMount() {
         this.props.profile(this.props.match.params.id);
     }
     
-    // displayForm = (e) => {
-    //     this.setState({
-    //         displayForm: !this.state.displayForm
-    //     })
-    // }
-   
     
     render() {
-        // console.log('wutt this?', this.props.review)
-        let profileData = this.props.info.data
-        console.log('props', profileData)
-        let userCard = profileData
-        // all reviews
-        let sellerData = profileData[1]
-        // all skills 
+        
+        let sellerData = this.props.contractor
 
-        let skillSet = sellerData.skills.map( skill => {
-            return(<div>
-            <h3>{magic(skill.expertise)}</h3>
-            <p>{skill.description}</p>
-            </div>)
-        })
-            
-        let seller = (<div className= 'seller'>
-            <div className= 'center-my-img'>
+        let sellerSkill = [{}]
+
+        if(sellerData.skills){
+            sellerSkill = sellerData.skills
+            console.log("here", sellerSkill[0])
+        }
+
+       
+        
+    
+        
+        let userCard = (<div className= 'seller'>
+                <div className= 'center-my-img'>
             <img src='https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png' alt="" className="profile-img"/>
-            </div>
-            <h1>{magic(userCard[0].name)}</h1>
-            {skillSet}
-            <h3>{userCard[0].email}</h3>
-            <hr/>
-            <p>{`${magic(userCard[0].city)}, ${magic(userCard[0].state)}`}</p>
+                </div>
+                { sellerData.name ? <h1>{magic(sellerData.name)}</h1> : null }
+                <h3>{sellerSkill[0].expertise}</h3>
+                <p>{sellerSkill[0].description}</p>
+                <h3>{sellerData.email}</h3> 
+                <hr/>
+                { sellerData.city && sellerData.state ? 
+                <p>{`${magic(sellerData.city)}, ${magic(sellerData.state)}`}</p> : null }
             </div>)
 
-        // console.log('usercard', userCard)
 
-        let reviewers = sellerData.reviewers
-        
 
-        
-        let listReviews = sellerData.reviews.map( review => {
-             return reviewers.map( i => {
-                if(i.id === review.user_id)
-                // return i.name
-            
-            return(<div className = 'the-review'>
-                <p>{i.name}: {review.content}</p>
-                <hr/>
-            </div>
-            )
-        })
-        })
-        
-        
-
-        return (
+        return(
             <div className="main-div">
-                    {seller}
-                <div className= 'review-container'>
-
-                    <ReviewForm id={this.props.match.params.id}/>
-                    
-                    <div className="review-list">
-
-                        {listReviews}
-
-                    </div>
-
-                </div>
-            
+             {userCard}
             </div>
         )
-    }
+        
+    }   
 }
 
-
+        
 const mapStateToProps = state => ({
-    info: state.sellerData,
-    review: state.reviews
+    contractor: state.profileData.data
 })
 
 

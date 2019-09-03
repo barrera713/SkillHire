@@ -15,16 +15,13 @@ class ContractorsController < ApplicationController
     end 
 
     def show
-        contractor = []
         seller = Contractor.find(params[:id])
-        # byebug
-        contractor.push(seller)
-        userNames = seller.reviews.map do |review|
-            User.find(review.user_id)
-        end
-        # byebug
-        contractor.push(reviews: seller.reviews, skills: seller.skills, reviewers: userNames)
-        render json: contractor 
+        render json: seller, include: {
+            reviews: {
+                methods: [ :user ]
+            },
+            skills: {}
+        }
     end 
 
 

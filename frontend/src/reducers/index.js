@@ -12,5 +12,5 @@ export default combineReducers({
     reviews: reviewReducer,
     current_user: homepageReducer,
     searchTerm: NavBarReducer,
-    sellerData: ProfilePageReducer
+    profileData: ProfilePageReducer
 })  

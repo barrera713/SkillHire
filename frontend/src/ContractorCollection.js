@@ -13,6 +13,7 @@ class ContractorCollection extends React.Component {
     
     componentDidMount() {
         this.props.fetchContractors();
+        this.props.profile()
     }
 
     handleClick = () => {
@@ -20,6 +21,7 @@ class ContractorCollection extends React.Component {
     }
 
     contractorProfile = (id) => {
+        // this.props.profile(id)
         history.push(`/profile/${id}`);
     }
     
