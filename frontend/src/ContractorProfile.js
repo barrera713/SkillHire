@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { profile } from './actions/ProfileActions';
 import ReviewForm from './ReviewForm';
 import capitalize from './Capitalize';
+import StarRatingComponent from 'react-star-rating-component';
 
 
 class ContractorProfile extends React.Component {
@@ -24,9 +25,11 @@ class ContractorProfile extends React.Component {
         console.log(sellerReviews)
 
         
+        
         let reviewList = sellerReviews.map(i => {
         return(<div>
-        <p>{capitalize(i.user.name)} | {i.content} | {i.rating} stars</p>
+        <p>{capitalize(i.user.name)}: {i.content} </p>
+        <p><StarRatingComponent value={i.rating}/> </p>
         <hr/>
         </div>)
         })
