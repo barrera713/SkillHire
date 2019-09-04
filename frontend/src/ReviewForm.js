@@ -22,12 +22,10 @@ class ReviewForm extends React.Component {
         const content = {
             "content": e.target["content"].value,
             rating: this.state.rating,
-            
-            
         }
         this.props.createReview(content, this.props.id)
         console.log('inside handleSubmit in ReviewForm', content, this.props.id)
-        // this.props.profile(this.props.id)
+        
         
     }
 

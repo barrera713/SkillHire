@@ -139,6 +139,7 @@
   margin-top: 50px;
   padding: 10px;
   height: 40%;
+  overflow-y: scroll;
   
 }
 

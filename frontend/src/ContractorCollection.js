@@ -3,7 +3,7 @@ import { Card, Icon, Image, Button, Grid, Container, Header } from 'semantic-ui-
 import { fetchContractors } from './actions/contractorActions';
 import { profile } from './actions/ProfileActions';
 import { connect } from 'react-redux';
-import magic from './magic';
+import magic from './Capitalize';
 import history from './history';
 
 
