@@ -8,23 +8,13 @@ import history from './history';
 
 class ExpertiseForm extends React.Component {
 
-    state = {
-        photographer: false,
-        developer: false,
-        designer: false,
-        videoeditor: false
-    }
    
 
     handleSubmit = (e) => {
         e.preventDefault()
         const formData = {
             "expertise": e.target["expertise"].value,
-            "description": e.target["description"].value,
-            photographer: this.state.photographer,
-            developer: this.state.developer,
-            designer: this.state.designer,
-            videoeditor: this.state.videoeditor
+            "description": e.target["description"].value
         }
         this.props.createSkill(formData)  
         history.push(`/profile/${this.props.seller.id}`)
@@ -46,28 +36,14 @@ class ExpertiseForm extends React.Component {
             <div className="login-background">
                 <Form className="skill-form" onSubmit={ (e) => this.handleSubmit(e)}>
                     <div>
-                        <Header as='h3'>How would you like to market yourself?</Header>
+                        <Header as='h3' className="about-skill">How would you like to market yourself?</Header>
                         <Form.Input name="expertise" placeholder="Skill" type="text" />
                     </div>
                     <div>
                         <Header as='h3'>About</Header>
                         <Form.Input name="description" placeholder="Tell us about your experience" type="text" />
                     </div>
-                    <div className="row">
-                        <div className="column">
-                            <Button value={false} name="photographer" onClick={(e) => this.handleTrueFalse(e)} >Photographer</Button>
-                        </div>
-                        <div className="column">
-                            <Button value={false}  name="developer" onClick={ (e) => this.handleTrueFalse(e)}>Developer</Button>
-                        </div>
-                        <div className="column">
-                            <Button value={false}  name="designer" onClick={ (e) => this.handleTrueFalse(e)}>Designer</Button>
-                        </div>
-                        <div className="column">
-                            <Button value={false} name="videoeditor" onClick={ (e) => this.handleTrueFalse(e)}>Video Editor</Button>
-                    </div>
-                        </div>
-                    <Button type="submit" content='Confirm' primary />
+                    <Button className="skill-button" type="submit" content='Confirm' primary />
                 </Form>
             </div>
         )

@@ -74,6 +74,7 @@
 }
 
 
+
 .ui.inverted.segment.navbar {
   border-radius: 0%;
   margin-bottom: 0%;
@@ -93,6 +94,14 @@
   width: 35%;
   padding-top: 0%;
   margin-left: 33%;
+}
+
+.ui.header.about-skill {
+  padding: 4px;
+}
+
+.ui.button.skill-button {
+  margin-top: 8px;
 }
 
 .profile-img {

@@ -18,7 +18,7 @@ class ContractorProfile extends React.Component {
     render() {
         
         let sellerData = this.props.contractor
-        console.log(sellerData)
+        console.log('sellerData', sellerData)
         let sellerSkill = sellerData.skills
         console.log(sellerSkill)
         let sellerReviews = sellerData.reviews
