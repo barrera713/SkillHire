@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { userLogin } from './actions/homepageActions';
-import { Button, Form, Label, Header, Container, Div } from 'semantic-ui-react';
+import { Button, Form, Container } from 'semantic-ui-react';
 import history from './history';
 
 

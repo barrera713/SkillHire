@@ -1,5 +1,5 @@
 import { NEW_SKILL} from './types';
-import history from '../history';
+
 
 
 export const createSkill = (formData) => dispatch => {

@@ -5,7 +5,6 @@ import { createContractor } from './actions/contractorActions'
 import { searchTerm } from './actions/NavBarActions';
 import { Menu, Segment, Modal, Button, Form, Label, Input } from 'semantic-ui-react';
 import history from './history'
-import { Link } from 'react-router-dom';
 import { profile } from './actions/ProfileActions';
 
 
@@ -106,15 +105,14 @@ class NavBar extends Component {
                     <Menu.Item name='browse' active={activeItem === 'browse'} onClick={this.handleBrowse}/>
                     }
                     <Menu.Menu position='right'>
-
-                    <Menu.Item>
-                    {['/freelancers'].includes(history.location.pathname) ? 
-                        <Input icon='search' placeholder="Search..." onChange={ (e) => this.searchChange(e)}/>
-                        : null }
-                    </Menu.Item>
-                    <Menu.Item name="log out" onClick={this.logOut} > 
-                    </Menu.Item>
-                        </Menu.Menu>
+                        <Menu.Item>
+                        {['/freelancers'].includes(history.location.pathname) ? 
+                            <Input icon='search' placeholder="Search..." onChange={ (e) => this.searchChange(e)}/>
+                            : null }
+                        </Menu.Item>
+                        <Menu.Item name="log out" onClick={this.logOut} > 
+                        </Menu.Item>
+                    </Menu.Menu>
 
                 </Menu>
                 <Modal open={this.state.userSignUp} onClose={this.closeUserModal} >

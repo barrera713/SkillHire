@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image, Button, Grid, Container, Header } from 'semantic-ui-react';
+import { Card, Grid, Container } from 'semantic-ui-react';
 import { fetchContractors } from './actions/contractorActions';
 import { profile } from './actions/ProfileActions';
 import { connect } from 'react-redux';
