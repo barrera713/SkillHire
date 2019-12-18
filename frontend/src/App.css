@@ -198,12 +198,29 @@
   margin-top: 20px
 }
 
-/* .ui.card {
-  margin-top: 20px;
-} */
 
 .ui.container {
   padding: 20px;
 }
 
 
+@media screen and (max-width: 960px) {
+
+  .collection-background {
+    background-color: rgba(245, 245, 245, 0.986);
+    /* height: 100vh; */
+    width: 100%;
+  }
+  
+  .ui.grid>.column:not(.row) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 20px
+  }
+  
+  .ui.container {
+    padding: 20px;
+    width: 100%;
+  }
+
+}

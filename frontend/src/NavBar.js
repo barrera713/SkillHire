@@ -129,7 +129,7 @@ class NavBar extends Component {
                                 <Form.Input fluid Label name="city" placeholder="city" type="text" />
                                 <Label>State</Label>
                                 <Form.Input fluid label name="state" placeholder="state" type="text" />
-                                <Button className="form-button"inverted color="green">Confirm</Button >
+                                <Button className="form-button" >Confirm</Button >
                             </Form>
                         </Modal.Content>
                     </Modal>
@@ -138,7 +138,7 @@ class NavBar extends Component {
                             <Form onSubmit={ (e) => this.contractorSubmit(e)}>
                             <Label>Name</Label>
                             <Form.Input name="name" placeholder="name" type="text"  />
-                            <Label>Username</Label>
+                            <Label>Last Name</Label>
                             <Form.Input name="username" placeholder="username" type="text"  />
                             <Label>Password</Label>
                             <Form.Input name="password" placeholder="password" type="password"  />

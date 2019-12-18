@@ -2,7 +2,6 @@ import React from 'react';
 import { Form, Header, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { createSkill } from './actions/expertiseActions';
-import history from './history';
 
 
 
@@ -17,7 +16,7 @@ class ExpertiseForm extends React.Component {
             "description": e.target["description"].value
         }
         this.props.createSkill(formData)  
-        history.push(`/profile/${this.props.seller.id}`)
+        window.location = `/profile/${this.props.seller.id}`
     }
 
     handleTrueFalse(e) {
