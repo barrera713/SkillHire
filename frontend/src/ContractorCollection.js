@@ -45,11 +45,12 @@ class ContractorCollection extends React.Component {
             return nameMatchesFilter(seller.contractor.name) || skillsMatchFilter(seller.contractor_skills)
         }) 
     
-            
+        
 
         let nameCard = searchName.map(i => {
             return i.contractor_skills.map( skill => {
                 return <Card
+                className='seller-card'
                 onClick = { () => this.contractorProfile(i.contractor.id)}
                 image='https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'
                 header={magic(i.contractor.name)}

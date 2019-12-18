@@ -9,13 +9,10 @@ class ApplicationController < ActionController::API
 
         begin 
 
-            # request.headers = eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.A6uJWtxKMq_aarBbagofRur0yC0RC-ZFpMDxi3N1kxE
             token = request.headers['Authorization'].split(' ')[1]
-            # type, token = request.headers['Authorization'].split(' ')
-            
+        
             payload = JWT.decode(token, 'a;lsdkjfgh')[0]
 
-            # payload, header = JWT.decode(token, 'a;slkdjfgh')
             if(payload['type'] == 'user')
                 @current_user = User.find(payload['id'])
             end

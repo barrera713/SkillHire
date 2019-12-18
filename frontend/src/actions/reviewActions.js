@@ -23,4 +23,3 @@ export const createReview = (content, id) => dispatch => {
         history.push('/')
     }
 }
-

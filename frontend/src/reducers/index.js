@@ -13,4 +13,4 @@ export default combineReducers({
     current_user: homepageReducer,
     searchTerm: NavBarReducer,
     profileData: ProfilePageReducer
-})  
+});

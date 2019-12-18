@@ -11,7 +11,7 @@
 .body {
   font-family: 'Oswald', sans-serif !important;
   background-color: rgba(245, 245, 245, 0.986);
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 /* https://i.pinimg.com/originals/0c/96/b1/0c96b19dc89ffdaa7ff737cfc04a095f.png */
@@ -22,7 +22,6 @@
  height: 100vh;
  background-position: top;
  padding-top: 10%;
-
 }
 
 
@@ -189,8 +188,22 @@
 
 
 .collection-background {
-  margin-top: 10px;
   background-color: rgba(245, 245, 245, 0.986);
-  /* height: 100vh; */
+  height: 100vh;
 }
+
+.ui.grid>.column:not(.row) {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 20px
+}
+
+/* .ui.card {
+  margin-top: 20px;
+} */
+
+.ui.container {
+  padding: 20px;
+}
+
 

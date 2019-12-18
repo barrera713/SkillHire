@@ -1,5 +1,6 @@
 class Contractor < ApplicationRecord
     has_secure_password 
+    # has_one_attached :profile_pic
     has_many :reviews 
     has_many :users, through: :reviews
     has_many :contractor_skills
@@ -15,6 +16,14 @@ class Contractor < ApplicationRecord
     def as_json(*)
         super.except('password_digest')
     end
+
+    def profile_url
+        begin
+            url_for(self.profile_pic)
+        rescue => error
+            ""
+        end
+    end 
     
 
 end

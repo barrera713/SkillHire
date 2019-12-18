@@ -34,6 +34,7 @@ class NavBar extends Component {
     contractorSubmit = (e) => {
         e.preventDefault()
         const contractorData = {
+            "profile_pic": e.target["name"].value,
             "name": e.target["name"].value,
             "username": e.target["username"].value,
             "password": e.target["password"].value,
