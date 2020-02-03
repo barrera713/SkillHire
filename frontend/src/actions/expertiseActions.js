@@ -1,9 +1,10 @@
 import { NEW_SKILL} from './types';
 
+const API = "https://mighty-ridge-68327.herokuapp.com";
 
 
 export const createSkill = (formData) => dispatch => {
-    fetch('http://localhost:3000/expertise', {
+    fetch(`${API}/expertise`, {
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json',

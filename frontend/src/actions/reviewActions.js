@@ -1,11 +1,14 @@
 import { NEW_REVIEW } from './types'
 import history from '../history';
 
+const API = "https://mighty-ridge-68327.herokuapp.com";
+
+
 
 export const createReview = (content, id) => dispatch => {
     console.log('inside review action', content, id) 
     if(localStorage.token && localStorage.token !== "undefined")
-    fetch(`http://localhost:3000/review/new/${id}`, {
+    fetch(`${API}/review/new/${id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -23,3 +26,4 @@ export const createReview = (content, id) => dispatch => {
         history.push('/')
     }
 }
+

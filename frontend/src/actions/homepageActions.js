@@ -1,8 +1,10 @@
 import { CURRENT_USER } from './types'
 
+const API = "https://mighty-ridge-68327.herokuapp.com";
+
 
 export const userLogin = (info) => dispatch => {
-    fetch('http://localhost:3000/login', {
+    fetch(`${API}/login`, {
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json'
@@ -12,7 +14,7 @@ export const userLogin = (info) => dispatch => {
     .then(res => res.json())
     .then( user => localStorage.setItem('token', user.auth_token))
     .then( () => {
-        fetch('http://localhost:3000/current/user', {
+        fetch(`${API}/current/user`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`

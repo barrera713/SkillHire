@@ -66,6 +66,10 @@ ActiveRecord::Schema.define(version: 2019_09_20_021823) do
   create_table "skills", force: :cascade do |t|
     t.string "expertise"
     t.string "description"
+    t.boolean "photographer"
+    t.boolean "developer"
+    t.boolean "designer"
+    t.boolean "videoeditor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

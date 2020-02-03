@@ -1,11 +1,13 @@
 import { PROFILE_PAGE } from './types';
 import  history from '../history'
 
+const API = "https://mighty-ridge-68327.herokuapp.com";
+
 
 export const profile = (id) => dispatch => {
     console.log('fetching seller profile id:', id)
     if(localStorage.token && localStorage.token !== "undefined")
-    fetch(`http://localhost:3000/profile/${id}`, {
+    fetch(`${API}/profile/${id}`, {
         method: 'GET', 
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`

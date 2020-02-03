@@ -66,7 +66,7 @@ class NavBar extends Component {
         this.setState({
             activeItem: name
         })
-        history.push('/freelancers')
+        window.location = '/freelancers'
     }
 
     handleContractorModal = (e, { name }) => this.setState({ 
@@ -87,7 +87,7 @@ class NavBar extends Component {
     
     logOut() {
         localStorage.clear()
-        window.location = '/'
+        history.push('/')
     }
 
 
@@ -101,7 +101,7 @@ class NavBar extends Component {
                 <Menu inverted pointing secondary>
                     <Menu.Item name='login' active={activeItem === 'login'} onClick={this.handleHome}/>
                     <Menu.Item name='client sign up' active={activeItem === 'client sign up'} onClick={this.handleUserModal}/>
-                    <Menu.Item name='contractor sign up' active={activeItem === 'contractor sign up'} onClick={this.handleContractorModal}/>
+                    <Menu.Item name='seller sign up' active={activeItem === 'contractor sign up'} onClick={this.handleContractorModal}/>
                     {['/freelancers', '/profile/:id'].includes(history.location.pathname) ? null :
                     <Menu.Item name='browse' active={activeItem === 'browse'} onClick={this.handleBrowse}/>
                     }
@@ -114,7 +114,6 @@ class NavBar extends Component {
                         <Menu.Item name="log out" onClick={this.logOut} > 
                         </Menu.Item>
                     </Menu.Menu>
-
                 </Menu>
                 <Modal open={this.state.userSignUp} onClose={this.closeUserModal} >
                         <Modal.Content className="content-background">

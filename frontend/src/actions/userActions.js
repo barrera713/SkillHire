@@ -1,7 +1,9 @@
 import { NEW_USER } from './types';
+const API = "https://mighty-ridge-68327.herokuapp.com";
+
 
 export const createUser = (userData) => dispatch => {
-    fetch('http://localhost:3000/join', {
+    fetch(`${API}/join`, {
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json'

@@ -1,9 +1,11 @@
 import { FETCH_CONTRACTORS, NEW_CONTRACTOR, CURRENT_USER } from './types';
 import history from '../history';
 
+const API = "https://mighty-ridge-68327.herokuapp.com";
+
 
 export const fetchContractors = () => dispatch => {
-    fetch('http://localhost:3000/freelancers', {
+    fetch(`${API}/freelancers`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -17,7 +19,7 @@ export const fetchContractors = () => dispatch => {
 }
 
 export const createContractor = (contractorData ) => dispatch => {
-    fetch('http://localhost:3000/start-earning', {
+    fetch(`${API}/start-earning`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -30,7 +32,7 @@ export const createContractor = (contractorData ) => dispatch => {
         payload: contractor
     }))
     .then(() => {
-        fetch('http://localhost:3000/login', {
+        fetch(`${API}/login`, {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'
@@ -40,7 +42,7 @@ export const createContractor = (contractorData ) => dispatch => {
         .then( res => res.json())
         .then( user => {
             localStorage.setItem('token', user.auth_token)
-            fetch('http://localhost:3000/current/user', {
+            fetch('/current/user', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`

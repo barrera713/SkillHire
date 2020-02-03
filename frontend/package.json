@@ -5,15 +5,18 @@
   "dependencies": {
     "@material-ui/core": "^4.3.2",
     "material-ui": "^0.20.2",
+    "netlify-cli": "^2.30.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "^3.3.1",
     "react-star-rating-component": "^1.4.1",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^4.3.2"
+    "semantic-ui-react": "^0.88.2",
+    "styled-components": "^4.3.2",
+    "update": "^0.7.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,6 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://mighty-ridge-68327.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   },
